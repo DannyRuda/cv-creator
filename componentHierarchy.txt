@@ -1,0 +1,15 @@
+- cv-creation-section
+    - Data-Fill-section
+        - header-bar
+            - progress-bar
+            - logo
+        - data-boxes-area
+            - Personal-data-box
+            - Contact-Data-box
+            - Education-data-box
+            - experience-data-box
+            - skills-data-box
+    - cv-preview-section
+        - background
+        - cv-preview
+        - download-button
