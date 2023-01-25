@@ -1,4 +1,4 @@
-import { ProgressBar } from "./components/data-fill-section/progressBar";
+import { ProgressBar } from "./components/data-fill-section/progressBar/progressBar";
 
 function App() {
   return (
