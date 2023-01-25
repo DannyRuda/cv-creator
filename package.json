@@ -23,7 +23,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "no-unreachable":"off"
+    }
   },
   "browserslist": {
     "production": [
