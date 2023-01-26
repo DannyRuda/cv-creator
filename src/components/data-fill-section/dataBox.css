@@ -1,0 +1,119 @@
+.data-box {
+  width: 500px;
+  padding-bottom: 20px;
+  background-color: #6366f1;
+  border-radius: 10px;
+  margin: 30px auto;
+}
+
+.data-box * {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: helvetica;
+}
+
+#box-header {
+  padding: 10px 20px 7px 15px;
+  background-color: #e0e7ff;
+  display: inline-block;
+  border-radius: 0px 10px 10px 0px;
+  font-size: 20px;
+  font-family: helvetica;
+}
+
+input {
+  background-color: #a5b4fc;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 6px 10px;
+  width: 45%;
+  transition: background-color 0.4s;
+}
+
+input:hover {
+  background-color: rgb(199 210 254);
+}
+
+input:focus {
+  background-color: rgb(224 231 255);
+  outline: none;
+}
+
+textarea {
+  width: 90%;
+  background-color: #a5b4fc;
+  border: none;
+  border-radius: 10px;
+  margin: 15px auto;
+  display: block;
+  padding: 6px 10px;
+  transition: background-color 0.4s;
+}
+
+textarea:hover {
+  background-color: rgb(199 210 254);
+}
+
+textarea:focus {
+  background-color: rgb(224 231 255);
+  outline: none;
+}
+
+.long {
+  margin: 25px auto;
+  display: block;
+  width: 90%;
+}
+
+.input-row {
+  margin: 15px auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons {
+  margin: 15px auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  color: white;
+  border-radius: 10px;
+  border: none;
+  background-color: #312e81;
+  transition: background-color 0.2s;
+}
+
+.buttons button {
+  padding: 10px 25px;
+
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: rgb(34, 32, 94);
+}
+button:active {
+  background-color: #312e81;
+}
+
+.delete {
+  width: 6.5%;
+}
+
+.add {
+  display: block;
+  padding: 6px 10px;
+}
+
+.wrap-add-buttons {
+    width: 90%;
+    display:flex;
+    justify-content: start;
+    gap: 10px;
+    margin: 15px auto;
+}
