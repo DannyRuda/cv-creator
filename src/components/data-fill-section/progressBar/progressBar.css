@@ -1,79 +1,95 @@
 body {
-    background-color: #EEF2FF;
-  }
-  
-  .progressBar {
-    width: 576px;
-    margin: 300px auto;
-    --line-thickness: 8px;
-    --point-diameter: 38px;
-    --bar-length: 576px;
-    --point-spread: calc(var(--bar-length) - var(--point-diameter));
-  }
-  
-  .progressLine {
-    background-color: #A5B4FC;
-    border-radius: var(--line-thickness);
-    width: calc(var(--bar-length) - 1px);
-    height: var(--line-thickness);
-    
-  }
-  
-  .progressPoint {
-    --point-translateY: calc((var(--line-thickness) - var(--point-diameter))/2);
-    width:var(--point-diameter);
-    position: absolute;
-    z-index: 3;
-    transform: translateY(var(--point-translateY));
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .point {
-    width:var(--point-diameter);
-    height:var(--point-diameter);
-    border-radius:50%;
-    background-color: #A5B4FC;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .point.reached {
-    background-color: #34D399;
-  }
+  background-color: #eef2ff;
+}
 
-  .point.reached .icon {
-    fill:white;
-    stroke: white;
-  }
-  
-  .progressPoint.two {
-    transform: translate(calc(1/4 * var(--point-spread)),var(--point-translateY));
-  }
-  
-  .progressPoint.three {
-    transform: translate(calc(2/4 * var(--point-spread)),var(--point-translateY));
-  }
-  
-  .progressPoint.four {
-    transform: translate(calc(3/4 * var(--point-spread)),var(--point-translateY));
-  }
-  
-  .progressPoint.five {
-    transform: translate(calc(4/4 * var(--point-spread)),var(--point-translateY));
-  }
-  
-  .indicator {
-    height:var(--line-thickness);
-    width:calc(1/8 * var(--point-spread));
-    background-color: #34D399;
-    border-radius:var(--line-thickness);
-  }
-  
-  .text {
-    text-align:center;
-    font-family:helvetica;
-    margin-top: 10px;
-  }
+.progressBar-frame {
+  height:34px;
+  padding: 16px 15px;
+}
+
+.progressBar {
+  width: 576px;
+  margin: 0px auto;
+  --line-thickness: 8px;
+  --point-diameter: 38px;
+  --bar-length: 576px;
+  --point-spread: calc(var(--bar-length) - var(--point-diameter));
+}
+
+.progressLine {
+  background-color: #a5b4fc;
+  border-radius: var(--line-thickness);
+  width: calc(var(--bar-length) - 1px);
+  height: var(--line-thickness);
+}
+
+.progressPoint {
+  --point-translateY: calc((var(--line-thickness) - var(--point-diameter)) / 2);
+  width: var(--point-diameter);
+  position: absolute;
+  z-index: 3;
+  transform: translateY(var(--point-translateY));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.point {
+  width: var(--point-diameter);
+  height: var(--point-diameter);
+  border-radius: 50%;
+  background-color: #a5b4fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.point.reached {
+  background-color: #34d399;
+}
+
+.point.reached .icon {
+  fill: white;
+  stroke: white;
+}
+
+.progressPoint.two {
+  transform: translate(
+    calc(1 / 4 * var(--point-spread)),
+    var(--point-translateY)
+  );
+}
+
+.progressPoint.three {
+  transform: translate(
+    calc(2 / 4 * var(--point-spread)),
+    var(--point-translateY)
+  );
+}
+
+.progressPoint.four {
+  transform: translate(
+    calc(3 / 4 * var(--point-spread)),
+    var(--point-translateY)
+  );
+}
+
+.progressPoint.five {
+  transform: translate(
+    calc(4 / 4 * var(--point-spread)),
+    var(--point-translateY)
+  );
+}
+
+.indicator {
+  height: var(--line-thickness);
+  width: calc(1 / 8 * var(--point-spread));
+  background-color: #34d399;
+  border-radius: var(--line-thickness);
+}
+
+.text {
+  text-align: center;
+  font-family: helvetica;
+  margin-top: 10px;
+}

@@ -1,6 +1,7 @@
-import { ProgressBar } from "./components/data-fill-section/progressBar/progressBar";
-import { DataBox } from "./components/data-fill-section/dataBox";
 import React from "react";
+import { DataFillSection } from "./components/data-fill-section/DataFillSection";
+import { CVPreview } from "./components/cv-preview-section/cvPreview";
+import "./App.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class App extends React.Component {
   }
 
   render() {
+    /* 
     let renderReturn = (
       <div>
         <ProgressBar />
@@ -24,10 +26,11 @@ class App extends React.Component {
     if (!this.state.showAll) {
       renderReturn = <DataBox />;
     }
+    */
     return (
-      <div>
-        {renderReturn}
-        <button onClick={this.toggleView}>toggle</button>
+      <div id="app">
+        <DataFillSection />
+        <CVPreview />
       </div>
     );
   }

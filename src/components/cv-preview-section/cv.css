@@ -1,0 +1,95 @@
+.information-area {
+  background-color: #f0f0f0;
+  width: 25%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.header-card {
+  background-color: white;
+  position: absolute;
+  z-index: 3;
+  border: 1px solid black;
+  width: 237%;
+  height: 15%;
+  transform: translate(109px, 30px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.header-card h2,
+.header-card h3 {
+  font-family: helvetica;
+}
+
+.header-card h2 {
+  font-size: 24px;
+}
+
+.detailed-area {
+  width: 75%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.detailed-blocks {
+  position: relative;
+  top: 150px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.block {
+  margin: 20px 0;
+}
+
+.block h5 {
+  font-size: 12px;
+  margin: 3px 0px;
+  font-weight: 600;
+}
+
+.block p,.block li {
+  font-size: 11px;
+  margin: 3px 0px;
+}
+
+.underline {
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+
+.achievement-with-date {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.achievement-with-institution {
+  display: flex;
+}
+
+.skill-point {
+    width: 6px;
+    height: 6px;
+    display:inline-block;
+    margin: 0px 3px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.skill-point.filled {
+    background-color: black;
+}
+
+.skill-rating {
+    height:10px;
+    display:flex;
+    align-items: center;
+}

@@ -19,9 +19,11 @@
   border-radius: 0px 10px 10px 0px;
   font-size: 20px;
   font-family: helvetica;
+  margin: 20px 0px;
 }
 
-input {
+input,
+select {
   background-color: #a5b4fc;
   border: none;
   border-radius: 10px;
@@ -31,15 +33,43 @@ input {
   transition: background-color 0.4s;
 }
 
-input:hover {
+input:hover,
+select:hover,
+textarea:hover {
   background-color: rgb(199 210 254);
 }
 
-input:focus {
+input:focus,
+select:focus,
+textarea:focus {
   background-color: rgb(224 231 255);
   outline: none;
 }
 
+/*
+.select-options {
+  position: absolute;
+  width:202.5px;
+  background-color: #a5b4fc;
+  border-radius:10px;
+  transform: translate(211px,31px);
+}
+
+.select-options p {
+  background-color: #a5b4fc;
+  margin:0;
+  padding:6px 10px;
+  border-radius: 10px;
+}
+
+.select-options p:hover {
+  background-color: rgb(199 210 254);
+}
+
+.select-options p:active {
+  background-color:rgb(224 231 255);
+}
+*/
 textarea {
   width: 90%;
   background-color: #a5b4fc;
@@ -49,15 +79,6 @@ textarea {
   display: block;
   padding: 6px 10px;
   transition: background-color 0.4s;
-}
-
-textarea:hover {
-  background-color: rgb(199 210 254);
-}
-
-textarea:focus {
-  background-color: rgb(224 231 255);
-  outline: none;
 }
 
 .long {
@@ -111,9 +132,9 @@ button:active {
 }
 
 .wrap-add-buttons {
-    width: 90%;
-    display:flex;
-    justify-content: start;
-    gap: 10px;
-    margin: 15px auto;
+  width: 90%;
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+  margin: 15px auto;
 }

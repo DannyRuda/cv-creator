@@ -1,9 +1,8 @@
 function Additional() {
   return (
     <div class="data-box">
-      <div class="header">
-        <h2 id="box-header">Additional Data</h2>
-      </div>
+      <h2 id="box-header">Additional Data</h2>
+
       <form>
         <input type="text" class="long" placeholder="Category" />
         <div class="input-row">

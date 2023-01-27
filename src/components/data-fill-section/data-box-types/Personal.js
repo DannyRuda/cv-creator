@@ -1,9 +1,8 @@
 function Personal() {
   return (
     <div class="data-box">
-      <div class="header">
-        <h2 id="box-header">Personal Data</h2>
-      </div>
+      <h2 id="box-header">Personal Data</h2>
+
       <form>
         <div class="input-row">
           <input type="text" placeholder="First Name" />
@@ -16,4 +15,4 @@ function Personal() {
   );
 }
 
-export {Personal}
+export { Personal };

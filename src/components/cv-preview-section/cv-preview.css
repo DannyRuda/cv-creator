@@ -1,0 +1,36 @@
+.cv-preview {
+  width: 45%;
+  background-color: #6366f1;
+  height: 100vh;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: sticky;
+  top: 0px;
+}
+
+.cv {
+  background-color: white;
+  width: 530px;
+  height: 750px;
+}
+
+#print {
+  padding: 15px 25px;
+  font-weight: 600;
+  background-color: #34d399;
+  width: 180px;
+  font-size: 16px;
+
+  display: block;
+  color: black;
+}
+
+#print:hover {
+  background-color: rgb(16 185 129);
+}
+
+#print:active {
+  background-color: rgb(5 150 105);
+}
