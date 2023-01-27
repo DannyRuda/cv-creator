@@ -46,6 +46,14 @@ textarea:focus {
   outline: none;
 }
 
+.data-box .form {
+  margin-bottom:50px;
+}
+
+.data-box .form.no-margin{
+  margin-bottom:0px;
+}
+
 /*
 .select-options {
   position: absolute;
@@ -110,9 +118,8 @@ button {
 }
 
 .buttons button {
-  padding: 10px 25px;
+  padding: 6px 10px;
 
-  font-weight: 600;
 }
 
 button:hover {

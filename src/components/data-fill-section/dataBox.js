@@ -1,19 +1,22 @@
 import { Personal } from "./data-box-types/Personal";
 import { Contact } from "./data-box-types/Contact";
-import { Education } from "./data-box-types/Education";
-import { Work } from "./data-box-types/Work";
+import { EducationClass } from "./data-box-types/Education";
+import { WorkClass } from "./data-box-types/Work";
 import { Additional } from "./data-box-types/Additional";
-import { Skills } from "./data-box-types/Skills";
+import { Skills, SkillsClass } from "./data-box-types/Skills";
+import { LanguagesClass } from "./data-box-types/Languages";
 import "./dataBox.css";
+
 
 function DataBox() {
   return (
     <div>
       <Personal />
       <Contact />
-      <Education />
-      <Work />
-      <Skills />
+      <EducationClass />
+      <WorkClass />
+      <SkillsClass />
+      <LanguagesClass />
     </div>
   );
 }

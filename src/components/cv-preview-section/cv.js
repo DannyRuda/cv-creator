@@ -11,6 +11,7 @@ function CV() {
         <div className="detailed-blocks">
           <BlockContact />
           <BlockSkills />
+          <BlockLanguages />
         </div>
       </div>
       <div className="detailed-area">
@@ -134,6 +135,31 @@ function BlockSkills() {
             <div className="skill-point filled"></div>
             <div className="skill-point"></div>
             <div className="skill-point"></div>
+        </div>
+      </div>
+    );
+  }
+
+  function BlockLanguages() {
+    return (
+      <div className="block">
+        <h4>Languages</h4>
+        <div className="underline"></div>
+        <h5>English</h5>
+        <div className="skill-rating">
+            <div className="skill-point filled"></div>
+            <div className="skill-point filled"></div>
+            <div className="skill-point filled"></div>
+            <div className="skill-point"></div>
+            <div className="skill-point"></div>
+        </div>
+        <h5>German</h5>
+        <div className="skill-rating">
+            <div className="skill-point filled"></div>
+            <div className="skill-point filled"></div>
+            <div className="skill-point filled"></div>
+            <div className="skill-point filled"></div>
+            <div className="skill-point filled"></div>
         </div>
       </div>
     );

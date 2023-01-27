@@ -1,4 +1,4 @@
-import { Header } from "./header"
+import { Header, HeaderAlternative } from "./header"
 import { DataBox } from "./dataBox"
 
 function DataFillSection() {
