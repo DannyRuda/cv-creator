@@ -14,6 +14,10 @@
   background-color: white;
   width: 530px;
   height: 750px;
+  transform: scale(1.1);
+  position: relative;
+  left:0px;
+  transition: left 2s, transform 1s;
 }
 
 #print {
@@ -22,7 +26,7 @@
   background-color: #34d399;
   width: 180px;
   font-size: 16px;
-
+  position: relative;
   display: block;
   color: black;
 }

@@ -1,8 +1,8 @@
 import "./cv.css";
 
-function CV() {
+function CV(props) {
   return (
-    <div className="cv">
+    <div className="cv" id="cv" ref={props.screenshot}>
       <div className="information-area">
         <div className="header-card">
           <h2>Danny Ruda</h2>
