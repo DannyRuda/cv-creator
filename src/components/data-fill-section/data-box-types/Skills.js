@@ -43,7 +43,6 @@ class SkillsClass extends React.Component {
   }
 
   handleAdd() {
-    console.log(this.state);
     this.setState((state, props) => {
       return {
         values: state.values.concat([{ skill: "", level: "" }]),

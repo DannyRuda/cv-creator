@@ -35,9 +35,13 @@ class App extends React.Component {
     this.setState({ [box]: valuesCopy });
   }
 
-  handleRemove(box) {
+  handleRemove(box,index) {
     let valuesCopy = this.state[box].slice();
-    valuesCopy.pop();
+    if(box==="languages" || box==="skills") {
+      valuesCopy.splice(index,1);
+    } else {
+      valuesCopy.pop();
+    }
     this.setState({ [box]: valuesCopy });
   }
 
