@@ -2,10 +2,11 @@ import { Header, HeaderAlternative } from "./header"
 import { DataBox } from "./dataBox"
 
 function DataFillSection(props) {
+    const {dataBoxesValues,handleAdd,handleChange,handleRemove} = props;
     return (
         <div className="data-fill-section">
             <Header />
-            <DataBox boxesValues={props.dataBoxesValues} handleAdd={props.handleAdd} handleChange={props.handleChange} handleRemove={props.handleRemove} />
+            <DataBox boxesValues={dataBoxesValues} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} />
         </div>
     )
 }

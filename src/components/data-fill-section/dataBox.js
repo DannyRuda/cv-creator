@@ -10,11 +10,12 @@ import "./dataBox.css";
 
 function DataBox(props) {
   const {personal,contact,education,work,skills,languages} = props.boxesValues;
+  const {handleAdd,handleChange,handleRemove} = props;
   return (
     <div>
       <Personal values={personal}/>
       <Contact values={contact}/>
-      <EducationClass values={education} handleAdd={props.handleAdd} handleChange={props.handleChange} handleRemove={props.handleRemove} />
+      <EducationClass values={education} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} />
       <WorkClass values={work}/>
       <SkillsClass values={skills}/>
       <LanguagesClass values={languages}/>

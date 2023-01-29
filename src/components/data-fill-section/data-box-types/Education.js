@@ -47,30 +47,31 @@ class EducationClass extends React.Component {
   }
 
   render() {
-    const length = this.props.values.length;
-    const inputs = this.props.values.map((value, index) => {
+    const {values,handleAdd,handleChange,handleRemove} = this.props;
+    const length = values.length;
+    const inputs = values.map((value, index) => {
       return (
         <div className={length === index + 1 ? "form no-margin" : "form"}>
           <form onSubmit={this.blockSubmit}>
             <InputData
               graduation={value.graduation}
               institution={value.institution}
-              handleChange={this.props.handleChange}
+              handleChange={handleChange}
               index={index}
             />
-            <TimeFrame handleChange={this.handleChange} index={index} />
+            <TimeFrame handleChange={handleChange} index={index} />
             <textarea
               placeholder="Description..."
               col="5"
               rows="6"
               onChange={(e) => {
-                this.handleChange(e, index, "description");
+                handleChange(e, index, "description","education");
               }}
             ></textarea>
-            {this.props.values.length === index + 1 ? (
+            {length === index + 1 ? (
               <Buttons
-                handleAdd={this.props.handleAdd}
-                handleRemove={this.props.handleRemove}
+                handleAdd={handleAdd}
+                handleRemove={handleRemove}
               />
             ) : (
               ""
@@ -85,7 +86,7 @@ class EducationClass extends React.Component {
         {inputs}
         {length === 0 ? (
           <div className="buttons">
-            <button onClick={this.props.handleAdd.bind(this, "education")}>
+            <button onClick={handleAdd.bind(this, "education")}>
               + Add Experience
             </button>
           </div>
@@ -117,14 +118,14 @@ function TimeFrame(props) {
         type="text"
         placeholder="Start mm/yyyy"
         onChange={(e) => {
-          props.handleChange(e, props.index, "start");
+          props.handleChange(e, props.index, "start","education");
         }}
       />
       <input
         type="text"
         placeholder="End mm/yyyy"
         onChange={(e) => {
-          props.handleChange(e, props.index, "end");
+          props.handleChange(e, props.index, "end","education");
         }}
       />
     </div>
