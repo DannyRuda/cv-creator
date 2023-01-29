@@ -28,10 +28,17 @@ function Education() {
 class EducationClass extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { values: [{ graduation: "", institution: "",start:"",end:"",description:"" }] };
-    this.handleAdd = this.handleAdd.bind(this);
-    this.handleRemove = this.handleRemove.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      values: [
+        {
+          graduation: "",
+          institution: "",
+          start: "",
+          end: "",
+          description: "",
+        },
+      ],
+    };
     this.blockSubmit = this.blockSubmit.bind(this);
   }
 
@@ -39,50 +46,31 @@ class EducationClass extends React.Component {
     e.preventDefault();
   }
 
-  handleAdd() {
-    this.setState((state, props) => {
-      return {
-        values: state.values.concat([{ graduation: "", institution: "" }]),
-      };
-    });
-  }
-
-  handleRemove() {
-    let valuesCopy = this.state.values.slice();
-    valuesCopy.pop();
-    this.setState({ values: valuesCopy });
-  }
-
-  handleChange(e, index, type,) {
-    const target = e.target;
-    let valuesCopy = this.state.values.slice();
-    valuesCopy[index][type] = target.value;
-    this.setState({ values: valuesCopy });
-  }
-
   render() {
     const length = this.props.values.length;
     const inputs = this.props.values.map((value, index) => {
       return (
-        <div
-          className={
-            length === index + 1 ? "form no-margin" : "form"
-          }
-        >
+        <div className={length === index + 1 ? "form no-margin" : "form"}>
           <form onSubmit={this.blockSubmit}>
             <InputData
               graduation={value.graduation}
               institution={value.institution}
-              handleChange={this.handleChange}
+              handleChange={this.props.handleChange}
               index={index}
             />
-            <TimeFrame handleChange={this.handleChange} index={index}
-            />
-            <textarea placeholder="Description..." col="5" rows="6" onChange={(e)=>{this.handleChange(e,index,"description")}}></textarea>
-            {this.state.values.length === index + 1 ? (
+            <TimeFrame handleChange={this.handleChange} index={index} />
+            <textarea
+              placeholder="Description..."
+              col="5"
+              rows="6"
+              onChange={(e) => {
+                this.handleChange(e, index, "description");
+              }}
+            ></textarea>
+            {this.props.values.length === index + 1 ? (
               <Buttons
-                handleAdd={this.handleAdd}
-                handleRemove={this.handleRemove}
+                handleAdd={this.props.handleAdd}
+                handleRemove={this.props.handleRemove}
               />
             ) : (
               ""
@@ -97,7 +85,9 @@ class EducationClass extends React.Component {
         {inputs}
         {length === 0 ? (
           <div className="buttons">
-            <button onClick={this.handleAdd}>+ Add Experience</button>
+            <button onClick={this.props.handleAdd.bind(this, "education")}>
+              + Add Experience
+            </button>
           </div>
         ) : (
           ""
@@ -110,8 +100,12 @@ class EducationClass extends React.Component {
 function Buttons(props) {
   return (
     <div className="buttons">
-      <button onClick={props.handleAdd}>+ Add Experience</button>
-      <button onClick={props.handleRemove}>x Remove Experience</button>
+      <button onClick={props.handleAdd.bind(this, "education")}>
+        + Add Experience
+      </button>
+      <button onClick={props.handleRemove.bind(this, "education")}>
+        x Remove Experience
+      </button>
     </div>
   );
 }
@@ -119,8 +113,20 @@ function Buttons(props) {
 function TimeFrame(props) {
   return (
     <div class="input-row">
-      <input type="text" placeholder="Start mm/yyyy" onChange={(e)=>{props.handleChange(e,props.index,"start")}}/>
-      <input type="text" placeholder="End mm/yyyy" onChange={(e)=>{props.handleChange(e,props.index,"end")}}/>
+      <input
+        type="text"
+        placeholder="Start mm/yyyy"
+        onChange={(e) => {
+          props.handleChange(e, props.index, "start");
+        }}
+      />
+      <input
+        type="text"
+        placeholder="End mm/yyyy"
+        onChange={(e) => {
+          props.handleChange(e, props.index, "end");
+        }}
+      />
     </div>
   );
 }
@@ -133,7 +139,7 @@ function InputData(props) {
         placeholder="Degree/Graduation"
         value={props.graduation}
         onChange={(e) => {
-          props.handleChange(e,props.index,"graduation");
+          props.handleChange(e, props.index, "graduation", "education");
         }}
       />
       <input
@@ -141,7 +147,7 @@ function InputData(props) {
         placeholder="Institution/School"
         value={props.institution}
         onChange={(e) => {
-          props.handleChange(e,props.index,"institution");
+          props.handleChange(e, props.index, "institution", "education");
         }}
       />
     </div>
