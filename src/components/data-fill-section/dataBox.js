@@ -17,8 +17,8 @@ function DataBox(props) {
       <Contact values={contact} handleChange={handleChange} />
       <EducationClass values={education} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} />
       <WorkClass values={work} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} />
-      <SkillsClass values={skills}/>
-      <LanguagesClass values={languages}/>
+      <SkillsClass values={skills} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} />
+      <LanguagesClass values={languages} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} />
     </div>
   );
 }

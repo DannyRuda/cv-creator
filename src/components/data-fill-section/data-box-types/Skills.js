@@ -26,15 +26,6 @@ function Skills() {
 class SkillsClass extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      values: [
-        { skill: "", level: "" },
-        { skill: "", level: "" },
-      ],
-    };
-    this.handleAdd = this.handleAdd.bind(this);
-    this.handleRemove = this.handleRemove.bind(this);
-    this.handleChange = this.handleChange.bind(this);
     this.blockSubmit = this.blockSubmit.bind(this);
   }
 
@@ -42,29 +33,10 @@ class SkillsClass extends React.Component {
     e.preventDefault();
   }
 
-  handleAdd() {
-    this.setState((state, props) => {
-      return {
-        values: state.values.concat([{ skill: "", level: "" }]),
-      };
-    });
-  }
-
-  handleRemove(index) {
-    let valuesCopy = this.state.values.slice();
-    valuesCopy.splice(index, 1);
-    this.setState({ values: valuesCopy });
-  }
-
-  handleChange(e, index, type) {
-    const target = e.target;
-    let valuesCopy = this.state.values.slice();
-    valuesCopy[index][type] = target.value;
-    this.setState({ values: valuesCopy });
-  }
-
   render() {
-    const inputs = this.state.values.map((value, index) => {
+    const {values,handleAdd,handleChange,handleRemove} = this.props;
+    const length = values.length;
+    const inputs = values.map((value, index) => {
       return (
         <div class="input-row" key={index}>
           <input
@@ -72,18 +44,18 @@ class SkillsClass extends React.Component {
             placeholder="skill"
             value={value.skill}
             onChange={(e) => {
-              this.handleChange(e, index, "skill");
+              handleChange(e, index, "skill","skills");
             }}
           />
           <Select
             handleChange={(e) => {
-              this.handleChange(e, index, "level");
+              handleChange(e, index, "level","skills");
             }}
             value={value.level}
           />
           <button
             className="delete"
-            onClick={this.handleRemove.bind(this, index)}
+            onClick={handleRemove.bind(this, "skills",index)}
           >
             X
           </button>
@@ -96,7 +68,7 @@ class SkillsClass extends React.Component {
         <div className="form no-margin">
           <form onSubmit={this.blockSubmit}>
             {inputs}
-            <AddButton handleAdd={this.handleAdd} />
+            <AddButton handleAdd={handleAdd} />
           </form>
         </div>
       </div>
@@ -119,7 +91,7 @@ function Select(props) {
 function AddButton(props) {
   return (
     <div className="wrap-add-buttons">
-      <button class="add" onClick={props.handleAdd}>
+      <button class="add" onClick={props.handleAdd.bind(this,"skills")}>
         + Add skill
       </button>
     </div>

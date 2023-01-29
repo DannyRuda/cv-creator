@@ -3,6 +3,37 @@ import { DataFillSection } from "./components/data-fill-section/DataFillSection"
 import { CVPreview } from "./components/cv-preview-section/cvPreview";
 import "./App.css";
 
+function generateEmptyFields(box) {
+  switch (box) {
+    case "personal":
+      return { first: "", last: "", job: "", description: "" };
+      break;
+    case "contact":
+      return { country: "", city: "", phone: "", email: "" };
+      break;
+    case "education":
+      return {
+        graduation: "",
+        institution: "",
+        start: "",
+        end: "",
+        description: "",
+      };
+      break;
+    case "work":
+      return { position: "", company: "", start: "", end: "", description: "" };
+      break;
+    case "skills":
+      return { skill: "", level: "" };
+      break;
+    case "languages":
+      return { language: "", level: "" };
+      break;
+      default:
+        break;
+  }
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -12,17 +43,35 @@ class App extends React.Component {
     this.state = {
       personal: [{ first: "", last: "", job: "", description: "" }],
       contact: [{ country: "", city: "", phone: "", email: "" }],
-      education: [{ graduation: "", institution: "",start:"",end:"",description:"" }],
-      work: [{ position: "", company: "" ,start:"",end:"",description:"" }],
-      skills: [],
-      languages: [],
+      education: [
+        {
+          graduation: "",
+          institution: "",
+          start: "",
+          end: "",
+          description: "",
+        },
+      ],
+      work: [
+        { position: "", company: "", start: "", end: "", description: "" },
+      ],
+      skills: [
+        { skill: "", level: "" },
+        { skill: "", level: "" },
+      ],
+      languages: [
+        { language: "", level: "" },
+        { language: "", level: "" },
+      ],
     };
   }
 
   handleAdd(box) {
     this.setState((state, props) => {
       let newValues = {};
-      newValues[box] = state[box].concat([{graduation: "", institution: "",start:"",end:"",description:"" }])
+      newValues[box] = state[box].concat([
+        generateEmptyFields(box),
+      ]);
       return newValues;
     });
   }
@@ -35,10 +84,10 @@ class App extends React.Component {
     this.setState({ [box]: valuesCopy });
   }
 
-  handleRemove(box,index) {
+  handleRemove(box, index) {
     let valuesCopy = this.state[box].slice();
-    if(box==="languages" || box==="skills") {
-      valuesCopy.splice(index,1);
+    if (box === "languages" || box === "skills") {
+      valuesCopy.splice(index, 1);
     } else {
       valuesCopy.pop();
     }
@@ -49,8 +98,13 @@ class App extends React.Component {
     const dataBoxesValues = this.state;
     return (
       <div id="app">
-        <DataFillSection dataBoxesValues={dataBoxesValues} handleAdd={this.handleAdd} handleChange={this.handleChange} handleRemove={this.handleRemove}/>
-        <CVPreview dataBoxesValues={dataBoxesValues}/>
+        <DataFillSection
+          dataBoxesValues={dataBoxesValues}
+          handleAdd={this.handleAdd}
+          handleChange={this.handleChange}
+          handleRemove={this.handleRemove}
+        />
+        <CVPreview dataBoxesValues={dataBoxesValues} />
       </div>
     );
   }
