@@ -28,17 +28,6 @@ function Education() {
 class EducationClass extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      values: [
-        {
-          graduation: "",
-          institution: "",
-          start: "",
-          end: "",
-          description: "",
-        },
-      ],
-    };
     this.blockSubmit = this.blockSubmit.bind(this);
   }
 

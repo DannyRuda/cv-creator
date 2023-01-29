@@ -16,7 +16,7 @@ function DataBox(props) {
       <Personal values={personal}/>
       <Contact values={contact}/>
       <EducationClass values={education} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} />
-      <WorkClass values={work}/>
+      <WorkClass values={work} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} />
       <SkillsClass values={skills}/>
       <LanguagesClass values={languages}/>
     </div>

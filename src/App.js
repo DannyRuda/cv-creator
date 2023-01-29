@@ -13,7 +13,7 @@ class App extends React.Component {
       personal: [{ first: "", last: "", job: "", description: "" }],
       contact: [{ country: "", city: "", phone: "", email: "" }],
       education: [{ graduation: "", institution: "",start:"",end:"",description:"" }],
-      work: [],
+      work: [{ position: "", company: "" ,start:"",end:"",description:"" }],
       skills: [],
       languages: [],
     };
