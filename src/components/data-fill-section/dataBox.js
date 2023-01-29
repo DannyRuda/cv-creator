@@ -8,15 +8,16 @@ import { LanguagesClass } from "./data-box-types/Languages";
 import "./dataBox.css";
 
 
-function DataBox() {
+function DataBox(props) {
+  const {personal,contact,education,work,skills,languages} = props.boxesValues;
   return (
     <div>
-      <Personal />
-      <Contact />
-      <EducationClass />
-      <WorkClass />
-      <SkillsClass />
-      <LanguagesClass />
+      <Personal values={personal}/>
+      <Contact values={contact}/>
+      <EducationClass values={education}/>
+      <WorkClass values={work}/>
+      <SkillsClass values={skills}/>
+      <LanguagesClass values={languages}/>
     </div>
   );
 }

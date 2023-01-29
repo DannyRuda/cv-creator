@@ -61,12 +61,12 @@ class EducationClass extends React.Component {
   }
 
   render() {
-    const length = this.state.values.length;
-    const inputs = this.state.values.map((value, index) => {
+    const length = this.props.values.length;
+    const inputs = this.props.values.map((value, index) => {
       return (
         <div
           className={
-            this.state.values.length === index + 1 ? "form no-margin" : "form"
+            length === index + 1 ? "form no-margin" : "form"
           }
         >
           <form onSubmit={this.blockSubmit}>

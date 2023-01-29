@@ -6,30 +6,21 @@ import "./App.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showAll: false };
-    this.toggleView = this.toggleView.bind(this);
-  }
-
-  toggleView() {
-    const newValue = this.state.showAll ? false : true;
-    this.setState({ showAll: newValue });
+    this.state = {
+      personal: [{ first: "", last: "", job: "", description: "" }],
+      contact: [{ country: "", city: "", phone: "", email: "" }],
+      education: [{ graduation: "", institution: "",start:"",end:"",description:"" }],
+      work: [],
+      skills: [],
+      languages: [],
+    };
   }
 
   render() {
-    /* 
-    let renderReturn = (
-      <div>
-        <ProgressBar />
-        <DataBox />
-      </div>
-    );
-    if (!this.state.showAll) {
-      renderReturn = <DataBox />;
-    }
-    */
+    const dataBoxesValues = this.state;
     return (
       <div id="app">
-        <DataFillSection />
+        <DataFillSection dataBoxesValues={dataBoxesValues}/>
         <CVPreview />
       </div>
     );

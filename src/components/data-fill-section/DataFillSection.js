@@ -1,11 +1,11 @@
 import { Header, HeaderAlternative } from "./header"
 import { DataBox } from "./dataBox"
 
-function DataFillSection() {
+function DataFillSection(props) {
     return (
         <div className="data-fill-section">
             <Header />
-            <DataBox />
+            <DataBox boxesValues={props.dataBoxesValues}/>
         </div>
     )
 }
