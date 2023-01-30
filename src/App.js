@@ -51,6 +51,7 @@ class App extends React.Component {
           end: "",
           description: "",
         },
+        
       ],
       work: [
         { position: "", company: "", start: "", end: "", description: "" },
@@ -77,6 +78,7 @@ class App extends React.Component {
   }
 
   handleChange(e, index, type, box) {
+    console.log(this.state)
     const target = e.target;
     let valuesCopy = this.state[box].slice();
     valuesCopy[index][type] = target.value;
@@ -84,7 +86,7 @@ class App extends React.Component {
     this.setState({ [box]: valuesCopy });
   }
 
-  handleRemove(box, index) {
+  handleRemove(box, index=0) {
     let valuesCopy = this.state[box].slice();
     if (box === "languages" || box === "skills") {
       valuesCopy.splice(index, 1);

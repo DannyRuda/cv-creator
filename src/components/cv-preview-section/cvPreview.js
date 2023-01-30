@@ -6,7 +6,7 @@ import { jsPDF } from "jspdf";
 import { CV } from "./cv";
 import "./cv-preview.css";
 
-function CVPreview() {
+function CVPreview(props) {
   function printCV() {
     const cv = document.querySelector("#cv");
     html2canvas(cv).then((canvas) => {
@@ -32,7 +32,7 @@ function CVPreview() {
   }
   return (
     <div className="cv-preview">
-      <CV screenshot={screenshotRef} />
+      <CV screenshot={screenshotRef} values={props.dataBoxesValues} />
       <button id="print" onClick={screenshotWithReact}>
         Download
       </button>

@@ -24,6 +24,7 @@
 .header-card h2,
 .header-card h3 {
   font-family: helvetica;
+  text-align: center;
 }
 
 .header-card h2 {

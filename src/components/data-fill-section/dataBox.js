@@ -10,6 +10,7 @@ import "./dataBox.css";
 
 function DataBox(props) {
   const {personal,contact,education,work,skills,languages} = props.boxesValues;
+
   const {handleAdd,handleChange,handleRemove} = props;
   return (
     <div>

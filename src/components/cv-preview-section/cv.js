@@ -1,168 +1,247 @@
+import { valuesOrPlaceholder } from "./placeHolder";
 import "./cv.css";
 
 function CV(props) {
-  return (
-    <div className="cv" id="cv" ref={props.screenshot}>
-      <div className="information-area">
-        <div className="header-card">
-          <h2>Danny Ruda</h2>
-          <h3>Software Engineer</h3>
+  console.log(props.values);
+
+  function render() {
+    const { personal, contact, education, work, skills, languages } =
+      valuesOrPlaceholder(props.values);
+
+    return (
+      <div className="cv" id="cv" ref={props.screenshot}>
+        <div className="information-area">
+          <div className="header-card">
+            <h2>{personal[0].first + " " + personal[0].last}</h2>
+            <h3>{personal[0].job}</h3>
+          </div>
+          <div className="detailed-blocks">
+            <BlockContact contact={contact} />
+            <BlockSkills skills={skills} />
+            <BlockLanguages languages={languages} />
+          </div>
         </div>
-        <div className="detailed-blocks">
-          <BlockContact />
-          <BlockSkills />
-          <BlockLanguages />
+        <div className="detailed-area">
+          <div className="detailed-blocks">
+            <BlockProfile description={personal[0].description} />
+            <BlockEducation education={education} />
+            <BlockWork work={work} />
+          </div>
         </div>
       </div>
-      <div className="detailed-area">
-        <div className="detailed-blocks">
-          <BlockProfile />
-          <BlockEducation />
-          <BlockWork />
-        </div>
-      </div>
-    </div>
-  );
+    );
+  }
+
+  return render();
 }
 
-function BlockProfile() {
+function BlockProfile(props) {
   return (
     <div className="block">
       <h4>Profile</h4>
       <div className="underline"></div>
-      <p className="description">
-        Here comes a detailed description of the person that sends the cv
-      </p>
+      <p className="description">{props.description}</p>
     </div>
   );
 }
 
-function BlockEducation() {
-  return (
-    <div className="block">
-      <h4>Education</h4>
-      <div className="underline"></div>
-      <div className="achievement-with-date">
-        <h5>B.Sc. Maschinenbau, RUB</h5>
-        <p>10/2017 - 03/2023</p>
-      </div>
-      <p className="description">
-        Number one student in my year with 1.0 Score
-      </p>
-    </div>
-  );
-}
-
-function BlockWork() {
-  return (
-    <div className="block">
-      <h4>Work Experience</h4>
-      <div className="underline"></div>
-      <div className="achievement-with-date">
-        <h5>Junior Software Developer, Google Inc.</h5>
-        <p>10/2017 - 03/2023</p>
-      </div>
-      <ul>
-        <li>
-          Solved complex algorythm problem with reactjs and with javascript with
-          custom react hooks and{" "}
-        </li>
-        <li>Solved another problem</li>
-        <li>AAAnd another one</li>
-      </ul>
-      <p className="description"></p>
-    </div>
-  );
-}
-
-function BlockContact() {
+function BlockContact(props) {
+  const { email, phone, country, city } = props.contact[0];
   return (
     <div className="block">
       <h4>Contact</h4>
       <div className="underline"></div>
       <h5>Email Adress</h5>
-      <p>derdanny.dr@gmail.com</p>
+      <p>{email}</p>
       <h5>Phone Number</h5>
-      <p>01520/1420439</p>
+      <p>{phone}</p>
       <h5>Location</h5>
-      <p>Duisburg</p>
-      <p>Germany</p>
+      <p>{city}</p>
+      <p>{country}</p>
     </div>
   );
 }
 
-function BlockSkills() {
+function BlockEducation(props) {
+  const educationBlock = props.education.map((values) => {
+    const { graduation, institution, start, end, description } = values;
     return (
-      <div className="block">
-        <h4>Skills</h4>
-        <div className="underline"></div>
-        <h5>ReactJS</h5>
-        <div className="skill-rating">
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point"></div>
-            <div className="skill-point"></div>
+      <div>
+        <div className="achievement-with-date">
+          <h5>{graduation + ", " + institution}</h5>
+          <p>{start + " - " + end}</p>
         </div>
-        <h5>javascript</h5>
-        <div className="skill-rating">
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-        </div>
-        <h5>CSS3</h5>
-        <div className="skill-rating">
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-        </div>
-        <h5>HTML5</h5>
-        <div className="skill-rating">
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point"></div>
-        </div>
-        <h5>Git/GitHub</h5>
-        <div className="skill-rating">
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point"></div>
-            <div className="skill-point"></div>
-        </div>
+        <p className="description">{description}</p>
       </div>
     );
-  }
+  });
+  return (
+    <div className="block">
+      <h4>Education</h4>
+      <div className="underline"></div>
+      {educationBlock}
+    </div>
+  );
+}
 
-  function BlockLanguages() {
+function BlockWork(props) {
+  const workBlock = props.work.map((values) => {
+    const { position, company, start, end, description } = values;
     return (
-      <div className="block">
-        <h4>Languages</h4>
-        <div className="underline"></div>
-        <h5>English</h5>
-        <div className="skill-rating">
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point"></div>
-            <div className="skill-point"></div>
+      <div>
+        <div className="achievement-with-date">
+          <h5>{position + ", " + company}</h5>
+          <p>{start + " - " + end}</p>
         </div>
-        <h5>German</h5>
-        <div className="skill-rating">
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-            <div className="skill-point filled"></div>
-        </div>
+        <ul>
+          <li>{description}</li>
+          <li></li>
+          <li></li>
+        </ul>
+        <p className="description"></p>
       </div>
     );
+  });
+  return (
+    <div className="block">
+      <h4>Work Experience</h4>
+      <div className="underline"></div>
+      {workBlock}
+    </div>
+  );
+}
+
+function BlockSkills(props) {
+  const skillBlocks = props.skills.map((values) => {
+    const { skill, level } = values;
+    return (
+      <div>
+        <h5>{skill}</h5>
+        {getLevelBlock(level)}
+      </div>
+    );
+  });
+  return (
+    <div className="block">
+      <h4>Skills</h4>
+      <div className="underline"></div>
+      {skillBlocks}
+    </div>
+  );
+}
+
+function BlockLanguages(props) {
+  const languageBlocks = props.languages.map((values) => {
+    const { language, level } = values;
+    return (
+      <div>
+        <h5>{language}</h5>
+        {getLevelBlock(level)}
+      </div>
+    );
+  });
+  return (
+    <div className="block">
+      <h4>Languages</h4>
+      <div className="underline"></div>
+      {languageBlocks}
+    </div>
+  );
+}
+
+function getLevelBlock(level) {
+  switch (level) {
+    case "Beginner":
+      return (
+        <div className="skill-rating">
+          <div className="skill-point filled"></div>
+          <div className="skill-point"></div>
+          <div className="skill-point"></div>
+          <div className="skill-point"></div>
+          <div className="skill-point"></div>
+        </div>
+      );
+      break;
+    case "Intermediate":
+      return (
+        <div className="skill-rating">
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point"></div>
+          <div className="skill-point"></div>
+          <div className="skill-point"></div>
+        </div>
+      );
+      break;
+    case "Advanced":
+      return (
+        <div className="skill-rating">
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point"></div>
+          <div className="skill-point"></div>
+        </div>
+      );
+      break;
+    case "Fluent":
+      return (
+        <div className="skill-rating">
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point"></div>
+          <div className="skill-point"></div>
+        </div>
+      );
+      break;
+    case "Proficient" || "Business":
+      return (
+        <div className="skill-rating">
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point"></div>
+        </div>
+      );
+      break;
+    case "Business":
+      return (
+        <div className="skill-rating">
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point"></div>
+        </div>
+      );
+      break;
+    case "Expert":
+      return (
+        <div className="skill-rating">
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+        </div>
+      );
+      break;
+    case "Native":
+      return (
+        <div className="skill-rating">
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+          <div className="skill-point filled"></div>
+        </div>
+      );
+      break;
+    default:
+      break;
   }
+}
 
 export { CV };
