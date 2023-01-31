@@ -1,0 +1,10 @@
+.data-fill-section {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.dataBoxes {
+    margin-top:80px;
+}

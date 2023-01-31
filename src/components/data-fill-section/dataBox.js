@@ -13,7 +13,7 @@ function DataBox(props) {
 
   const {handleAdd,handleChange,handleRemove} = props;
   return (
-    <div>
+    <div className="dataBoxes">
       <Personal values={personal} handleChange={handleChange}/>
       <Contact values={contact} handleChange={handleChange} />
       <EducationClass values={education} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} />

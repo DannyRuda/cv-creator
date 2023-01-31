@@ -3,16 +3,14 @@ body {
 }
 
 .progressBar-frame {
-  height:34px;
-  padding: 16px 15px;
 }
 
 .progressBar {
-  width: 576px;
+  width: 500px;
   margin: 0px auto;
   --line-thickness: 8px;
   --point-diameter: 38px;
-  --bar-length: 576px;
+  --bar-length: 500px;
   --point-spread: calc(var(--bar-length) - var(--point-diameter));
 }
 
@@ -32,6 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 }
 
 .point {
@@ -92,4 +91,19 @@ body {
   text-align: center;
   font-family: helvetica;
   margin-top: 10px;
+  background-color: #312e81;
+  padding: 7px 15px;
+  border-radius: 15px;
+  color: white;
+  opacity: 0;
+  position: relative;
+  top: -40px;
+  transform: scale(0);
+  transition: opacity 0.4s,transform 0.3s,top 0.3s;
+}
+
+.progressPoint:hover .text {
+  opacity: 1;
+  top: 0;
+  transform: scale(1);
 }

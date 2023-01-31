@@ -72,7 +72,7 @@ function getSVG(svgName) {
         </svg>
       );
       break;
-    case "Work":
+    case "Experience":
       return (
         <svg
           width="25px"

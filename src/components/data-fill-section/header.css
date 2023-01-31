@@ -2,10 +2,10 @@
     width:100%;
     height:80px;
     display:flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap:90px;
-    box-shadow:0px 1px 4px  rgb(16, 16, 34);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     position:sticky;
     top:0px;
     background-color: #eef2ff;
@@ -13,17 +13,28 @@
 
 .alternative-header {
     background-color: #eef2ff;
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    margin: 10px auto;
-    padding: 10px;
+
+    margin: 25px auto;
+    padding: 30px;
     border-radius: 40px;
     position: fixed;
     top:0px;
-    left: 6.3%;
+    left: 27.5%;
+transform: translateX(-50%);
 }
 
 .alternative-header.scrolled {
-    box-shadow: 0px 1px 4px 0px black;
+    
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.progressBar-frame {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo {
+    margin-left:60px;
+    width:
 }

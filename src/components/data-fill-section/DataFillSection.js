@@ -1,5 +1,6 @@
 import { Header, HeaderAlternative } from "./header"
 import { DataBox } from "./dataBox"
+import "./section.css"
 
 function DataFillSection(props) {
     const {dataBoxesValues,handleAdd,handleChange,handleRemove} = props;

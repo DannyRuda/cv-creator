@@ -9,7 +9,7 @@ function ProgressBar() {
           <ProgressPoint number="one" category="Personal" reached={true} />
           <ProgressPoint number="two" category="Contact" />
           <ProgressPoint number="three" category="Education" />
-          <ProgressPoint number="four" category="Work" />
+          <ProgressPoint number="four" category="Experience" />
           <ProgressPoint number="five" category="Additional" />
           <div className="indicator"></div>
         </div>
