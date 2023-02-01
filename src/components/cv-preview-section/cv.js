@@ -2,7 +2,6 @@ import { valuesOrPlaceholder } from "./placeHolder";
 import "./cv.css";
 
 function CV(props) {
-  console.log(props.values);
 
   function render() {
     const { personal, contact, education, work, skills, languages } =

@@ -112,6 +112,7 @@ body {
   width: calc(var(--indicator-multiplicator) * var(--indicator-steps));
   background-color: #34d399;
   border-radius: var(--line-thickness);
+  transition: width 0.4s;
 }
 
 .text {

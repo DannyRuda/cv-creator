@@ -1,14 +1,14 @@
-import { ProgressBar } from "./progressBar/progressBar";
+import { ProgressBar, ProgressBarClass } from "./progressBar/progressBar";
 import "./header.css";
-import logo from "./logo.png";
 import icon from "./favicon.svg";
-function Header() {
+import { ProgressPoint } from "./progressBar/progressPoint";
+function Header(props) {
   return (
     <div className="header">
       <div className="logo">
         <img src={icon} alt="" />
       </div>
-      <ProgressBar />
+      <ProgressBarClass values={props.values} />
     </div>
   );
 }

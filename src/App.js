@@ -78,7 +78,6 @@ class App extends React.Component {
   }
 
   handleChange(e, index, type, box) {
-    console.log(this.state)
     const target = e.target;
     let valuesCopy = this.state[box].slice();
     valuesCopy[index][type] = target.value;

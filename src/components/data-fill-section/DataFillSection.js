@@ -6,7 +6,7 @@ function DataFillSection(props) {
     const {dataBoxesValues,handleAdd,handleChange,handleRemove} = props;
     return (
         <div className="data-fill-section">
-            <Header />
+            <Header values={dataBoxesValues}/>
             <DataBox boxesValues={dataBoxesValues} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} />
         </div>
     )
