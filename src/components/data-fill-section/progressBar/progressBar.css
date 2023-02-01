@@ -10,8 +10,28 @@ body {
   margin: 0px auto;
   --line-thickness: 8px;
   --point-diameter: 38px;
+  --start-point-diameter: 20px;
   --bar-length: 500px;
   --point-spread: calc(var(--bar-length) - var(--point-diameter));
+  --point-distance: 58px;
+  --point-one-trans: calc(var(--start-point-diameter) + var(--point-distance));
+  --point-two-trans:calc(var(--point-one-trans) + var(--point-diameter) + var(--point-distance));
+  --point-three-trans:calc(var(--point-two-trans) + var(--point-diameter) + var(--point-distance));
+  --point-four-trans:calc(var(--point-three-trans) + var(--point-diameter) + var(--point-distance));
+  --point-five-trans:calc(var(--point-four-trans) + var(--point-diameter) + var(--point-distance));
+  --indicator-steps:calc(var(--point-spread)/26);
+  --indicator-multiplicator: 1;
+}
+
+.startPoint{
+  --point-translateY: calc((var(--line-thickness) - var(--start-point-diameter)) / 2);
+  width: var(--start-point-diameter);
+  height: var(--start-point-diameter);
+  position: absolute;
+  transform: translateY(var(--point-translateY));
+  z-index: 10;
+  background-color: #34d399;
+  border-radius: 50%;
 }
 
 .progressLine {
@@ -52,37 +72,44 @@ body {
   stroke: white;
 }
 
+.progressPoint.one {
+  transform: translate(
+    var(--point-one-trans),
+    var(--point-translateY)
+  );
+}
+
 .progressPoint.two {
   transform: translate(
-    calc(1 / 4 * var(--point-spread)),
+    var(--point-two-trans),
     var(--point-translateY)
   );
 }
 
 .progressPoint.three {
   transform: translate(
-    calc(2 / 4 * var(--point-spread)),
+    var(--point-three-trans),
     var(--point-translateY)
   );
 }
 
 .progressPoint.four {
   transform: translate(
-    calc(3 / 4 * var(--point-spread)),
+    var(--point-four-trans),
     var(--point-translateY)
   );
 }
 
 .progressPoint.five {
   transform: translate(
-    calc(4 / 4 * var(--point-spread)),
+    var(--point-five-trans),
     var(--point-translateY)
   );
 }
 
 .indicator {
   height: var(--line-thickness);
-  width: calc(1 / 8 * var(--point-spread));
+  width: calc(var(--indicator-multiplicator) * var(--indicator-steps));
   background-color: #34d399;
   border-radius: var(--line-thickness);
 }

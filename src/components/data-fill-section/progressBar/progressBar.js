@@ -6,7 +6,8 @@ function ProgressBar() {
     <div className="progressBar-frame">
       <div className="progressBar">
         <div className="progressLine">
-          <ProgressPoint number="one" category="Personal" reached={true} />
+          <div className="startPoint"></div>
+          <ProgressPoint number="one" category="Personal" />
           <ProgressPoint number="two" category="Contact" />
           <ProgressPoint number="three" category="Education" />
           <ProgressPoint number="four" category="Experience" />

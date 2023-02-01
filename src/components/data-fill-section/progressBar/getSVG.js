@@ -5,16 +5,21 @@ function getSVG(svgName) {
     case "Personal":
       return (
         <svg
-          width="25px"
-          height="25px"
+          width="24px"
+          height="24px"
           viewBox="0 0 64 64"
           xmlns="http://www.w3.org/2000/svg"
           stroke-width="3"
           class="icon"
-
+          fill="#a5b4fc"
+          stroke={strokeColor}
         >
-          <circle cx="32" cy="18.14" r="11.14" />
-          <path d="M54.55,56.85A22.55,22.55,0,0,0,32,34.3h0A22.55,22.55,0,0,0,9.45,56.85Z" />
+          <circle cx="32" cy="18.14" r="11.14" stroke-width="6"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+          <path d="M54.55,56.85A22.55,22.55,0,0,0,32,34.3h0A22.55,22.55,0,0,0,9.45,56.85Z" stroke-width="6"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
         </svg>
       );
       break;
