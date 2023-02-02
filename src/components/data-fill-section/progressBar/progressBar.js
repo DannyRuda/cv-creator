@@ -131,7 +131,7 @@ function getPointDiameter() {
   const progressBarStyles = getComputedStyle(
     document.querySelector(".progressBar")
   );
-  const stageDistance = Number(progressBarStyles.getPropertyValue("--point-diameter").split("p")[0])
+  const stageDistance = Number(progressBarStyles.getPropertyValue("--static-point-diameter").split("p")[0])
     return stageDistance;
 }
 

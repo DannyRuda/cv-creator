@@ -13,16 +13,13 @@ body {
   width: 500px;
   margin: 0px auto;
   --line-thickness: 8px;
+  --static-point-diameter: 38px;
   --point-diameter: 38px;
   --start-point-diameter: 20px;
   --bar-length: 500px;
   --point-spread: calc(var(--bar-length) - var(--point-diameter));
   --point-distance: 63px;
-  --point-one-trans: calc(var(--start-point-diameter) + var(--point-distance));
-  --point-two-trans:calc(var(--point-one-trans) + var(--point-diameter) + var(--point-distance));
-  --point-three-trans:calc(var(--point-two-trans) + var(--point-diameter) + var(--point-distance));
-  --point-four-trans:calc(var(--point-three-trans) + var(--point-diameter) + var(--point-distance));
-  --point-five-trans:calc(var(--point-four-trans) + var(--point-diameter) + var(--point-distance));
+
   --indicator-portion: calc(0);
 }
 
@@ -45,6 +42,12 @@ body {
 }
 
 .progressPoint {
+  --point-one-trans: calc(var(--start-point-diameter) + var(--point-distance) - calc(var(--point-diameter) - var(--static-point-diameter))/2 );
+  --point-two-trans: calc(var(--point-one-trans) + var(--point-diameter) + var(--point-distance) );
+  --point-three-trans:calc(var(--point-two-trans) + var(--point-diameter) + var(--point-distance));
+  --point-four-trans:calc(var(--point-three-trans) + var(--point-diameter) + var(--point-distance)  );
+  --point-five-trans:calc(var(--point-four-trans) + var(--point-diameter) + var(--point-distance)  );
+
   --point-translateY: calc((var(--line-thickness) - var(--point-diameter)) / 2);
   width: var(--point-diameter);
   position: absolute;
@@ -54,6 +57,7 @@ body {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  transition:width 0.3s, transform 0.3s;
 }
 
 .point {
@@ -64,6 +68,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: width 0.3s, height 0.3s;
 }
 
 .point.reached {
@@ -75,14 +80,31 @@ body {
   stroke: white;
 }
 
-.progressPoint.one {
+.progressBar .progressPoint {
+  --point-diameter:38px;
+  --point-translateY: calc((var(--line-thickness) - var(--point-diameter)) / 2);
+  width: var(--point-diameter);
   transform: translate(
     var(--point-one-trans),
     var(--point-translateY)
   );
 }
 
+.progressBar .progressPoint:hover, .progressBar .progressPoint:hover .point {
+  --point-diameter: 50px;
+}
+
+.progressBar .progressPoint:hover .point {
+  width: var(--point-diameter);
+  height: var(--point-diameter);
+}
+
+.progressPoint.one {
+  --point-one-trans: calc(var(--start-point-diameter) + var(--point-distance) - calc(var(--point-diameter) - var(--static-point-diameter))/2 );
+}
+
 .progressPoint.two {
+  --point-two-trans:calc(var(--point-one-trans) + var(--point-diameter) + var(--point-distance) - calc(var(--point-diameter) - var(--static-point-diameter)) );
   transform: translate(
     var(--point-two-trans),
     var(--point-translateY)
@@ -90,6 +112,7 @@ body {
 }
 
 .progressPoint.three {
+  --point-three-trans:calc(var(--point-two-trans) + var(--point-diameter) + var(--point-distance) - calc(var(--point-diameter) - var(--static-point-diameter))*2 );
   transform: translate(
     var(--point-three-trans),
     var(--point-translateY)
@@ -97,6 +120,7 @@ body {
 }
 
 .progressPoint.four {
+  --point-four-trans:calc(var(--point-three-trans) + var(--point-diameter) + var(--point-distance) - calc(var(--point-diameter) - var(--static-point-diameter))*3 );
   transform: translate(
     var(--point-four-trans),
     var(--point-translateY)
@@ -104,6 +128,7 @@ body {
 }
 
 .progressPoint.five {
+  --point-five-trans:calc(var(--point-four-trans) + var(--point-diameter) + var(--point-distance) - calc(var(--point-diameter) - var(--static-point-diameter)) * 4);
   transform: translate(
     var(--point-five-trans),
     var(--point-translateY)
