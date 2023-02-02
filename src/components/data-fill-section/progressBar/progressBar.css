@@ -13,14 +13,13 @@ body {
   --start-point-diameter: 20px;
   --bar-length: 500px;
   --point-spread: calc(var(--bar-length) - var(--point-diameter));
-  --point-distance: 58px;
+  --point-distance: 63px;
   --point-one-trans: calc(var(--start-point-diameter) + var(--point-distance));
   --point-two-trans:calc(var(--point-one-trans) + var(--point-diameter) + var(--point-distance));
   --point-three-trans:calc(var(--point-two-trans) + var(--point-diameter) + var(--point-distance));
   --point-four-trans:calc(var(--point-three-trans) + var(--point-diameter) + var(--point-distance));
   --point-five-trans:calc(var(--point-four-trans) + var(--point-diameter) + var(--point-distance));
-  --indicator-steps:calc(var(--point-spread)/26);
-  --indicator-multiplicator: 1;
+  --indicator-portion: calc(0);
 }
 
 .startPoint{
@@ -109,7 +108,7 @@ body {
 
 .indicator {
   height: var(--line-thickness);
-  width: calc(var(--indicator-multiplicator) * var(--indicator-steps));
+  width: calc(var(--indicator-portion) * var(--point-spread) + var(--start-point-diameter));
   background-color: #34d399;
   border-radius: var(--line-thickness);
   transition: width 0.4s;
