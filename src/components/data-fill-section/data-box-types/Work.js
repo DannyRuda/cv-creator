@@ -2,15 +2,15 @@ import React from "react";
 
 function Work() {
   return (
-    <div class="data-box">
+    <div className="data-box">
       <h2 id="box-header">Work Experience</h2>
 
       <form>
-        <div class="input-row">
+        <div className="input-row">
           <input type="text" placeholder="Job Position" />
           <input type="text" placeholder="Company/Institution" />
         </div>
-        <div class="input-row">
+        <div className="input-row">
           <input type="text" placeholder="Start Date mm/yyyy" />
           <input type="text" placeholder="End Date mm/yyyy" />
         </div>
@@ -39,7 +39,7 @@ class WorkClass extends React.Component {
     const length = values.length;
     const inputs = values.map((value, index) => {
       return (
-        <div className={length === index + 1 ? "form no-margin" : "form"}>
+        <div key={index} className={length === index + 1 ? "form no-margin" : "form"}>
           <form onSubmit={this.blockSubmit}>
             <InputData
               company={value.company}
@@ -66,7 +66,7 @@ class WorkClass extends React.Component {
       );
     });
     return (
-      <div class="data-box">
+      <div className="data-box">
         <h2 id="box-header">Work Experience</h2>
         {inputs}
         {length === 0 ? (
@@ -98,7 +98,7 @@ function Buttons(props) {
 
 function TimeFrame(props) {
   return (
-    <div class="input-row">
+    <div className="input-row">
       <input
         type="text"
         placeholder="Start mm/yyyy"
@@ -119,7 +119,7 @@ function TimeFrame(props) {
 
 function InputData(props) {
   return (
-    <div class="input-row">
+    <div className="input-row">
       <input
         type="text"
         placeholder="Job Position"

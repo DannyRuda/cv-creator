@@ -62,10 +62,10 @@ function BlockContact(props) {
 }
 
 function BlockEducation(props) {
-  const educationBlock = props.education.map((values) => {
+  const educationBlock = props.education.map((values,index) => {
     const { graduation, institution, start, end, description } = values;
     return (
-      <div>
+      <div key={index}>
         <div className="achievement-with-date">
           <h5>{graduation + ", " + institution}</h5>
           <p>{start + " - " + end}</p>
@@ -84,10 +84,10 @@ function BlockEducation(props) {
 }
 
 function BlockWork(props) {
-  const workBlock = props.work.map((values) => {
+  const workBlock = props.work.map((values, index) => {
     const { position, company, start, end, description } = values;
     return (
-      <div>
+      <div key={index} >
         <div className="achievement-with-date">
           <h5>{position + ", " + company}</h5>
           <p>{start + " - " + end}</p>
@@ -111,10 +111,10 @@ function BlockWork(props) {
 }
 
 function BlockSkills(props) {
-  const skillBlocks = props.skills.map((values) => {
+  const skillBlocks = props.skills.map((values, index) => {
     const { skill, level } = values;
     return (
-      <div>
+      <div key={index}>
         <h5>{skill}</h5>
         {getLevelBlock(level)}
       </div>
@@ -130,10 +130,10 @@ function BlockSkills(props) {
 }
 
 function BlockLanguages(props) {
-  const languageBlocks = props.languages.map((values) => {
+  const languageBlocks = props.languages.map((values,index) => {
     const { language, level } = values;
     return (
-      <div>
+      <div key={index}>
         <h5>{language}</h5>
         {getLevelBlock(level)}
       </div>

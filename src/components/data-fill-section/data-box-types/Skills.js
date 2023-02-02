@@ -2,21 +2,21 @@ import React from "react";
 
 function Skills() {
   return (
-    <div class="data-box">
+    <div className="data-box">
       <h2 id="box-header">Skills</h2>
       <form>
-        <div class="input-row">
+        <div className="input-row">
           <input type="text" placeholder="skill" />
           <Select />
           <button className="delete">X</button>
         </div>
-        <div class="input-row">
+        <div className="input-row">
           <input type="text" placeholder="skill" />
           <Select />
           <button className="delete">X</button>
         </div>
         <div className="wrap-add-buttons">
-          <button class="add">+ Add skill</button>
+          <button className="add">+ Add skill</button>
         </div>
       </form>
     </div>
@@ -38,7 +38,7 @@ class SkillsClass extends React.Component {
     const length = values.length;
     const inputs = values.map((value, index) => {
       return (
-        <div class="input-row" key={index}>
+        <div key={index} className="input-row" >
           <input
             type="text"
             placeholder="skill"
@@ -63,7 +63,7 @@ class SkillsClass extends React.Component {
       );
     });
     return (
-      <div class="data-box">
+      <div className="data-box">
         <h2 id="box-header">Skills</h2>
         <div className="form no-margin">
           <form onSubmit={this.blockSubmit}>
@@ -91,7 +91,7 @@ function Select(props) {
 function AddButton(props) {
   return (
     <div className="wrap-add-buttons">
-      <button class="add" onClick={props.handleAdd.bind(this,"skills")}>
+      <button className="add" onClick={props.handleAdd.bind(this,"skills")}>
         + Add skill
       </button>
     </div>

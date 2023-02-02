@@ -2,21 +2,21 @@ import React from "react";
 
 function Languages() {
   return (
-    <div class="data-box">
+    <div className="data-box">
       <h2 id="box-header">Languages</h2>
       <form>
-        <div class="input-row">
+        <div className="input-row">
           <input type="text" placeholder="Language" />
           <Select />
           <button className="delete">X</button>
         </div>
-        <div class="input-row">
+        <div className="input-row">
           <input type="text" placeholder="Language" />
           <Select />
           <button className="delete">X</button>
         </div>
         <div className="wrap-add-buttons">
-          <button class="add">+ Add Language</button>
+          <button className="add">+ Add Language</button>
         </div>
       </form>
     </div>
@@ -38,7 +38,7 @@ function Select(props) {
 function AddButton(props) {
   return (
     <div className="wrap-add-buttons">
-      <button class="add" onClick={props.handleAdd.bind(this, "languages")}>
+      <button className="add" onClick={props.handleAdd.bind(this, "languages")}>
         + Add Language
       </button>
     </div>
@@ -60,7 +60,7 @@ class LanguagesClass extends React.Component {
     const length = values.length;
     const inputs = values.map((value, index) => {
       return (
-        <div class="input-row" key={index}>
+        <div key={index} className="input-row" >
           <input
             type="text"
             placeholder="Language"
@@ -85,7 +85,7 @@ class LanguagesClass extends React.Component {
       );
     });
     return (
-      <div class="data-box">
+      <div className="data-box">
         <h2 id="box-header">Languages</h2>
         <div className="form no-margin">
           <form onSubmit={this.blockSubmit}>

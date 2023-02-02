@@ -2,15 +2,15 @@ import React from "react";
 
 function Education() {
   return (
-    <div class="data-box">
+    <div className="data-box">
       <h2 id="box-header">Education</h2>
       <div className="form">
         <form className="form">
-          <div class="input-row">
+          <div className="input-row">
             <input type="text" placeholder="Degree/Graduation" />
             <input type="text" placeholder="Institution/School" />
           </div>
-          <div class="input-row">
+          <div className="input-row">
             <input type="text" placeholder="Start mm/yyyy" />
             <input type="text" placeholder="Start mm/yyyy" />
           </div>
@@ -40,7 +40,7 @@ class EducationClass extends React.Component {
     const length = values.length;
     const inputs = values.map((value, index) => {
       return (
-        <div className={length === index + 1 ? "form no-margin" : "form"}>
+        <div key={index} className={length === index + 1 ? "form no-margin" : "form"}>
           <form onSubmit={this.blockSubmit}>
             <InputData
               graduation={value.graduation}
@@ -70,7 +70,7 @@ class EducationClass extends React.Component {
       );
     });
     return (
-      <div class="data-box">
+      <div className="data-box">
         <h2 id="box-header">Education</h2>
         {inputs}
         {length === 0 ? (
@@ -102,7 +102,7 @@ function Buttons(props) {
 
 function TimeFrame(props) {
   return (
-    <div class="input-row">
+    <div className="input-row">
       <input
         type="text"
         placeholder="Start mm/yyyy"
@@ -123,7 +123,7 @@ function TimeFrame(props) {
 
 function InputData(props) {
   return (
-    <div class="input-row">
+    <div className="input-row">
       <input
         type="text"
         placeholder="Degree/Graduation"
