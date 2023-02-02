@@ -34,7 +34,7 @@ class SkillsClass extends React.Component {
   }
 
   render() {
-    const {values,handleAdd,handleChange,handleRemove} = this.props;
+    const {values,handleAdd,handleChange,handleRemove, onFocusOut} = this.props;
     const length = values.length;
     const inputs = values.map((value, index) => {
       return (
@@ -46,16 +46,19 @@ class SkillsClass extends React.Component {
             onChange={(e) => {
               handleChange(e, index, "skill","skills");
             }}
+            onBlur={onFocusOut}
           />
           <Select
             handleChange={(e) => {
               handleChange(e, index, "level","skills");
             }}
+            onFocusOut={onFocusOut}
             value={value.level}
           />
           <button
             className="delete"
             onClick={handleRemove.bind(this, "skills",index)}
+            onBlur={onFocusOut}
           >
             X
           </button>
@@ -79,7 +82,7 @@ class SkillsClass extends React.Component {
 
 function Select(props) {
   return (
-    <select onChange={props.handleChange} value={props.value}>
+    <select onChange={props.handleChange} onBlur={props.onFocusOut} value={props.value}>
       <option>Beginner</option>
       <option>Intermediate</option>
       <option>Advanced</option>

@@ -35,7 +35,7 @@ class WorkClass extends React.Component {
   }
 
   render() {
-    const { values, handleAdd, handleChange, handleRemove } = this.props;
+    const { values, handleAdd, handleChange, handleRemove ,onFocusOut } = this.props;
     const length = values.length;
     const inputs = values.map((value, index) => {
       return (
@@ -47,8 +47,9 @@ class WorkClass extends React.Component {
               position={value.position}
               handleChange={handleChange}
               index={index}
+              onFocusOut={onFocusOut}
             />
-            <TimeFrame handleChange={handleChange} index={index} />
+            <TimeFrame handleChange={handleChange} index={index} onFocusOut={onFocusOut}/>
             <textarea
               placeholder="Description..."
               col="5"
@@ -58,7 +59,7 @@ class WorkClass extends React.Component {
               }}
             ></textarea>
             {length === index + 1 ? (
-              <Buttons handleAdd={handleAdd} handleRemove={handleRemove} />
+              <Buttons handleAdd={handleAdd} handleRemove={handleRemove} onBlur={onFocusOut}/>
             ) : (
               ""
             )}
@@ -106,6 +107,7 @@ function TimeFrame(props) {
         onChange={(e) => {
           props.handleChange(e, props.index, "start", "work");
         }}
+        onBlur={props.onFocusOut}
       />
       <input
         type="text"
@@ -113,6 +115,7 @@ function TimeFrame(props) {
         onChange={(e) => {
           props.handleChange(e, props.index, "end", "work");
         }}
+        onBlur={props.onFocusOut}
       />
     </div>
   );
@@ -128,6 +131,7 @@ function InputData(props) {
         onChange={(e) => {
           props.handleChange(e, props.index, "position", "work");
         }}
+        onBlur={props.onFocusOut}
       />
       <input
         type="text"
@@ -136,6 +140,7 @@ function InputData(props) {
         onChange={(e) => {
           props.handleChange(e, props.index, "company", "work");
         }}
+        onBlur={props.onFocusOut}
       />
     </div>
   );

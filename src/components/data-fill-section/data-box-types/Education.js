@@ -36,7 +36,7 @@ class EducationClass extends React.Component {
   }
 
   render() {
-    const {values,handleAdd,handleChange,handleRemove} = this.props;
+    const {values,handleAdd,handleChange,handleRemove,onFocusOut} = this.props;
     const length = values.length;
     const inputs = values.map((value, index) => {
       return (
@@ -47,9 +47,10 @@ class EducationClass extends React.Component {
               graduation={value.graduation}
               institution={value.institution}
               handleChange={handleChange}
+              onFocusOut={onFocusOut}
               index={index}
             />
-            <TimeFrame handleChange={handleChange} index={index} />
+            <TimeFrame handleChange={handleChange} onFocusOut={onFocusOut} index={index} />
             <textarea
               placeholder="Description..."
               col="5"
@@ -57,6 +58,7 @@ class EducationClass extends React.Component {
               onChange={(e) => {
                 handleChange(e, index, "description","education");
               }}
+              onBlur={onFocusOut}
             ></textarea>
             {length === index + 1 ? (
               <Buttons
@@ -91,10 +93,10 @@ class EducationClass extends React.Component {
 function Buttons(props) {
   return (
     <div className="buttons">
-      <button onClick={props.handleAdd.bind(this, "education")}>
+      <button onClick={props.handleAdd.bind(this,"education")}>
         + Add Experience
       </button>
-      <button onClick={props.handleRemove.bind(this, "education")}>
+      <button onClick={props.handleRemove.bind(this,"education")}>
         x Remove Experience
       </button>
     </div>
@@ -110,6 +112,7 @@ function TimeFrame(props) {
         onChange={(e) => {
           props.handleChange(e, props.index, "start","education");
         }}
+        onBlur={props.onFocusOut}
       />
       <input
         type="text"
@@ -117,6 +120,7 @@ function TimeFrame(props) {
         onChange={(e) => {
           props.handleChange(e, props.index, "end","education");
         }}
+        onBlur={props.onFocusOut}
       />
     </div>
   );
@@ -132,6 +136,7 @@ function InputData(props) {
         onChange={(e) => {
           props.handleChange(e, props.index, "graduation", "education");
         }}
+        onBlur={props.onFocusOut}
       />
       <input
         type="text"
@@ -140,6 +145,7 @@ function InputData(props) {
         onChange={(e) => {
           props.handleChange(e, props.index, "institution", "education");
         }}
+        onBlur={props.onFocusOut}
       />
     </div>
   );

@@ -25,7 +25,7 @@ function Languages() {
 
 function Select(props) {
   return (
-    <select onChange={props.handleChange} value={props.value}>
+    <select onChange={props.handleChange} onBlur={props.onFocusOut} value={props.value}>
       <option>Beginner</option>
       <option>Intermediate</option>
       <option>Fluent</option>
@@ -56,7 +56,7 @@ class LanguagesClass extends React.Component {
   }
 
   render() {
-    const { values, handleAdd, handleChange, handleRemove } = this.props;
+    const { values, handleAdd, handleChange, handleRemove,onFocusOut } = this.props;
     const length = values.length;
     const inputs = values.map((value, index) => {
       return (
@@ -68,11 +68,13 @@ class LanguagesClass extends React.Component {
             onChange={(e) => {
               handleChange(e, index, "language", "languages");
             }}
+            onBlur={onFocusOut}
           />
           <Select
             handleChange={(e) => {
               handleChange(e, index, "level", "languages");
             }}
+            onFocusOut={onFocusOut}
             value={value.level}
           />
           <button

@@ -4,6 +4,9 @@ import "./section.css"
 
 function DataFillSection(props) {
     const {dataBoxesValues,handleAdd,handleChange,handleRemove} = props;
+
+
+
     return (
         <div className="data-fill-section">
             <Header values={dataBoxesValues}/>

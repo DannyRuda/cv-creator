@@ -1,6 +1,7 @@
 import React from "react";
 import { DataFillSection } from "./components/data-fill-section/DataFillSection";
 import { CVPreview } from "./components/cv-preview-section/cvPreview";
+import { updateProgressIndicator } from "./components/data-fill-section/updateProgressIndicator";
 import "./App.css";
 
 function generateEmptyFields(box) {
@@ -68,13 +69,14 @@ class App extends React.Component {
   }
 
   handleAdd(box) {
+    console.log("handleAdd was called in App.js")
     this.setState((state, props) => {
       let newValues = {};
       newValues[box] = state[box].concat([
         generateEmptyFields(box),
       ]);
       return newValues;
-    });
+    },()=>{updateProgressIndicator(this.state)});
   }
 
   handleChange(e, index, type, box) {
@@ -92,10 +94,11 @@ class App extends React.Component {
     } else {
       valuesCopy.pop();
     }
-    this.setState({ [box]: valuesCopy });
+    this.setState({ [box]: valuesCopy },()=>{updateProgressIndicator(this.state)});
   }
 
   render() {
+    console.log("render was called in app.js with new state")
     const dataBoxesValues = this.state;
     return (
       <div id="app">
