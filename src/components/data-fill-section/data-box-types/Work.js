@@ -40,7 +40,8 @@ class WorkClass extends React.Component {
     const inputs = values.map((value, index) => {
       return (
         <div key={index} className={length === index + 1 ? "form no-margin" : "form"}>
-          <form onSubmit={this.blockSubmit}>
+        <div className="box-anchor" id="Experience" ></div>
+          <form onSubmit={this.blockSubmit} >
             <InputData
               company={value.company}
               position={value.position}

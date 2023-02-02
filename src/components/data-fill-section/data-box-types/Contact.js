@@ -7,8 +7,8 @@ function Contact(props) {
   return (
     <div className="data-box">
       <h2 id="box-header">Contact</h2>
-
-      <form>
+      <div className="box-anchor" id="Contact" ></div>
+      <form >
         <div className="input-row">
           <input type="text" placeholder="Country" value={country} onChange={(e)=>{handleChange(e,index,"country","contact")}} />
           <input type="text" placeholder="City" value={city} onChange={(e)=>{handleChange(e,index,"city","contact")}} />

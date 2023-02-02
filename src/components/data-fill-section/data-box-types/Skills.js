@@ -66,7 +66,8 @@ class SkillsClass extends React.Component {
       <div className="data-box">
         <h2 id="box-header">Skills</h2>
         <div className="form no-margin">
-          <form onSubmit={this.blockSubmit}>
+          <div className="box-anchor" id="Additional" ></div>
+          <form onSubmit={this.blockSubmit} >
             {inputs}
             <AddButton handleAdd={handleAdd} />
           </form>
