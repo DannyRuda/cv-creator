@@ -2,13 +2,16 @@ import { ProgressBar, ProgressBarClass } from "./progressBar/progressBar";
 import "./header.css";
 import icon from "./favicon.svg";
 import { ProgressPoint } from "./progressBar/progressPoint";
+
+
 function Header(props) {
+  console.log(props.progressPointsReached)
   return (
     <div className="header">
       <div className="logo">
         <img src={icon} alt="" />
       </div>
-      <ProgressBarClass values={props.values} />
+      <ProgressBar values={props.values} progressPointsReached={props.progressPointsReached} />
     </div>
   );
 }

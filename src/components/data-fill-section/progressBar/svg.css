@@ -1,0 +1,52 @@
+.icon {
+    --size:24px;
+    fill: #a5b4fc;
+    stroke: rgb(129 140 248);
+    width: var(--size);
+    height: var(--size);
+    transition: fill 0.3s, stroke 0.3s, width 0.3s, height 0.3s;
+  }
+  
+  .point.reached .icon {
+    fill:#34d399;
+    stroke: white;
+  }
+  
+  .progressPoint:hover .icon {
+    --size:34px;
+  }
+
+  .progressPoint:active .icon {
+    --size:28px;
+  }
+  
+  .contact-icon {
+    --size: 28px;
+    width: var(--size);
+    height: var(--size);
+  }
+
+  .education-icon {
+    --size:26px;
+    width: var(--size);
+    height: var(--size);
+    fill: rgb(129 140 248);
+    stroke: rgb(129 140 248);
+
+  }
+  
+  .point.reached .education-icon {
+    fill:white;
+    stroke: white;
+  }
+  
+  .additional-icon {
+    --size:26px;
+    fill: rgb(129 140 248);
+    stroke: rgb(129 140 248);
+  }
+  
+  .point.reached .additional-icon {
+    fill:white;
+    stroke: white;
+  }

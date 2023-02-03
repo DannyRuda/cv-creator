@@ -1,5 +1,5 @@
 import React from "react";
-import { DataFillSection } from "./components/data-fill-section/DataFillSection";
+import { DataFillSectionClass } from "./components/data-fill-section/DataFillSection";
 import { CVPreview } from "./components/cv-preview-section/cvPreview";
 import { updateProgressIndicator } from "./components/data-fill-section/updateProgressIndicator";
 import "./App.css";
@@ -102,7 +102,7 @@ class App extends React.Component {
     const dataBoxesValues = this.state;
     return (
       <div id="app">
-        <DataFillSection
+        <DataFillSectionClass
           dataBoxesValues={dataBoxesValues}
           handleAdd={this.handleAdd}
           handleChange={this.handleChange}

@@ -6,6 +6,7 @@ import { Additional } from "./data-box-types/Additional";
 import { Skills, SkillsClass } from "./data-box-types/Skills";
 import { LanguagesClass } from "./data-box-types/Languages";
 import { updateProgressIndicator } from "./updateProgressIndicator";
+import React from "react"
 import "./dataBox.css";
 
 
@@ -16,15 +17,15 @@ function DataBox(props) {
     updateProgressIndicator(props.boxesValues);
   }
 
-  const {handleAdd,handleChange,handleRemove} = props;
+  const {handleAdd,handleChange,handleRemove, onFocusOut} = props;
   return (
     <div className="dataBoxes">
-      <Personal values={personal} handleChange={handleChange} onFocusOut={callOnFocusOut} />
-      <Contact values={contact} handleChange={handleChange} onFocusOut={callOnFocusOut} />
-      <EducationClass values={education} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={callOnFocusOut} />
-      <WorkClass values={work} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={callOnFocusOut} />
-      <SkillsClass values={skills} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={callOnFocusOut} />
-      <LanguagesClass values={languages} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={callOnFocusOut} />
+      <Personal values={personal} handleChange={handleChange} onFocusOut={onFocusOut} />
+      <Contact values={contact} handleChange={handleChange} onFocusOut={onFocusOut} />
+      <EducationClass values={education} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
+      <WorkClass values={work} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
+      <SkillsClass values={skills} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
+      <LanguagesClass values={languages} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
     </div>
   );
 }

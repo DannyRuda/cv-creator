@@ -121,4 +121,4 @@ function updateProgressIndicator(values) {
   progressBar.style.setProperty("--indicator-portion", portion);
 }
 
-export { updateProgressIndicator };
+export { updateProgressIndicator,boxValuesFull };

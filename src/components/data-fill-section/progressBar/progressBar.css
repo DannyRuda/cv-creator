@@ -60,30 +60,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: width 0.3s, height 0.3s;
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
 }
 
 .point.reached {
   background-color: #34d399;
 }
 
-.point.reached .icon {
-  fill: white;
-  stroke: white;
-}
-
 .progressBar .progressPoint {
   --point-diameter:38px;
   --point-translateY: calc((var(--line-thickness) - var(--point-diameter)) / 2);
   width: var(--point-diameter);
-  transform: translate(
-    var(--point-one-trans),
-    var(--point-translateY)
-  );
+  
 }
 
 .progressBar .progressPoint:hover, .progressBar .progressPoint:hover .point {
   --point-diameter: 50px;
+}
+
+.progressBar .progressPoint:active, .progressBar .progressPoint:active .point {
+  --point-diameter: 40px;
 }
 
 .progressBar .progressPoint:hover .point {
@@ -93,6 +89,10 @@
 
 .progressPoint.one {
   --point-one-trans: calc(var(--start-point-diameter) + var(--point-distance) - calc(var(--point-diameter) - var(--static-point-diameter))/2 );
+  transform: translate(
+    var(--point-one-trans),
+    var(--point-translateY)
+  );
 }
 
 .progressPoint.two {
