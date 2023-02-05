@@ -5,19 +5,17 @@ import { WorkClass } from "./data-box-types/Work";
 import { Additional } from "./data-box-types/Additional";
 import { Skills, SkillsClass } from "./data-box-types/Skills";
 import { LanguagesClass } from "./data-box-types/Languages";
-import { updateProgressIndicator } from "./updateProgressIndicator";
-import React from "react"
+import {React, createRef} from "react"
+import { useScreenshot } from "use-react-screenshot";
+import { jsPDF } from "jspdf";import { downloadCV } from "./download";
 import "./dataBox.css";
 
 
 function DataBox(props) {
   const {personal,contact,education,work,skills,languages} = props.boxesValues;
 
-  function callOnFocusOut() {
-    updateProgressIndicator(props.boxesValues);
-  }
-
   const {handleAdd,handleChange,handleRemove, onFocusOut} = props;
+
   return (
     <div className="dataBoxes">
       <Personal values={personal} handleChange={handleChange} onFocusOut={onFocusOut} />
@@ -26,7 +24,11 @@ function DataBox(props) {
       <WorkClass values={work} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
       <SkillsClass values={skills} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
       <LanguagesClass values={languages} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
+      <button id="download" onClick={downloadCV}>
+        Download
+      </button>
     </div>
+    
   );
 }
 

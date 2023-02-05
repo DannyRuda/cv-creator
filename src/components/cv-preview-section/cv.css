@@ -23,7 +23,7 @@
 
 .header-card h2,
 .header-card h3 {
-  font-family: helvetica;
+  font-family: Calibri;
   text-align: center;
 }
 
@@ -49,20 +49,27 @@
   margin: 20px 0;
 }
 
+.block h4 {
+  font-family:calibri;
+}
+
 .block h5 {
+  font-family: calibri;
   font-size: 12px;
   margin: 3px 0px;
   font-weight: 600;
 }
 
 .block p,.block li {
+  font-family: calibri;
   font-size: 11px;
   margin: 3px 0px;
 }
 
 .underline {
   border-bottom: 1px solid black;
-  width: 100%;
+  width: 10%;
+  margin:2px 0px 4px;
 }
 
 .achievement-with-date {

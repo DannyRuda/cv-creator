@@ -1,5 +1,7 @@
 import { createRef } from "react";
 import { useScreenshot } from "use-react-screenshot";
+import { saveAs } from "file-saver";
+import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import { CV } from "./cv";
 import "./cv-preview.css";
@@ -22,9 +24,6 @@ function CVPreview(props) {
   return (
     <div className="cv-preview">
       <CV screenshot={screenshotRef} values={props.dataBoxesValues} />
-      <button id="print" onClick={screenshotWithReact}>
-        Download
-      </button>
     </div>
   );
 }
@@ -35,7 +34,7 @@ function hideAndScaleCV(cv) {
 }
 
 function showCV(cv) {
-  cv.style.transform = "scale(1.1)";
+  cv.style.transform = "scale(1.2)";
   cv.style.left = "0";
 }
 

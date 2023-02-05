@@ -188,3 +188,24 @@ button:active {
   gap: 10px;
   margin: 15px auto;
 }
+
+#download {
+  padding: 15px 25px;
+  margin:30px auto;
+  font-family: Poppins;
+  font-weight: 600;
+  background-color: #34d399;
+  width: 180px;
+  font-size: 18px;
+  position: relative;
+  display: block;
+  color: black;
+}
+
+#download:hover {
+  background-color: rgb(16 185 129);
+}
+
+#download:active {
+  background-color: rgb(5 150 105);
+}

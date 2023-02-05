@@ -20,21 +20,9 @@
   transition: left 2s, transform 1s;
 }
 
-#print {
-  padding: 15px 25px;
-  font-weight: 600;
-  background-color: #34d399;
-  width: 180px;
-  font-size: 16px;
-  position: relative;
-  display: block;
-  color: black;
-}
-
-#print:hover {
-  background-color: rgb(16 185 129);
-}
-
-#print:active {
-  background-color: rgb(5 150 105);
+@font-face {
+  font-family: Poppins;
+  src: url(./../../fonts/Poppins-SemiBold.ttf) format("truetype");
+  weight:600;
+  type:normal;
 }
