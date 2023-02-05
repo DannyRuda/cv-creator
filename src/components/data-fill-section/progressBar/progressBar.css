@@ -135,9 +135,16 @@
   transition: width 0.4s;
 }
 
+@font-face {
+  font-family: "Poppins";
+  src: url("./../../../fonts/Poppins-SemiBold.ttf") format("truetype") ;
+  font-weight: 600;
+  font-style: normal;
+}
+
 .text {
   text-align: center;
-  font-family: helvetica;
+  font-family: Poppins;
   margin-top: 10px;
   background-color: #312e81;
   padding: 7px 15px;

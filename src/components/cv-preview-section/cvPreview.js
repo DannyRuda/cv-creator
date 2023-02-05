@@ -1,21 +1,10 @@
 import { createRef } from "react";
 import { useScreenshot } from "use-react-screenshot";
-import { saveAs } from "file-saver";
-import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import { CV } from "./cv";
 import "./cv-preview.css";
 
 function CVPreview(props) {
-  function printCV() {
-    const cv = document.querySelector("#cv");
-    html2canvas(cv).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png", 1);
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, "JPG", 0, 0);
-      pdf.save("download.pdf");
-    });
-  }
   const screenshotRef = createRef();
   const [, takeScreenshot] = useScreenshot({ type: "image/png", quality: 1.0 });
   function screenshotWithReact() {

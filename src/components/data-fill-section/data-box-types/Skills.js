@@ -41,7 +41,7 @@ class SkillsClass extends React.Component {
         <div key={index} className="input-row" >
           <input
             type="text"
-            placeholder="skill"
+            placeholder="Skill"
             value={value.skill}
             onChange={(e) => {
               handleChange(e, index, "skill","skills");
