@@ -1,5 +1,5 @@
 const autofillObject = {values:{
-    personal: [{ first: "Danny", last: "Ruda", job: "Social Media Content Manager", description: "Hi, I was a freelancing social media content manager for 5 years now and during my 5 years i've helped top companies to social growth like Coca Cola, Nike, Ankerkraut and many more" }],
+    personal: [{ first: "Danny", last: "Ruda", job: "Junior Frontend Developer", description: "Hi, i am a self tought frontend developer since summer 2022. I found my passion for programming during my bachelors degree in mechanical engineering where i came in contact with progrramming for the first time. After pursuring my degree for a little longer i realised i wanted to become a full fledged programmer and decided to learn programming on my own. Since then i created multiple astounding projects as you can see on my portfolio site" }],
     contact: [{ country: "Germany", city: "Duisburg", phone: "015201420439", email: "danny.ruda1997@gmail.com" }],
     education: [
       {
