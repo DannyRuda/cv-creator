@@ -8,6 +8,7 @@
   justify-content: space-evenly;
   position: sticky;
   top: 0px;
+  overflow: hidden;
 }
 
 .cv {
@@ -17,7 +18,7 @@
   transform: scale(1.1);
   position: relative;
   left:0px;
-  transition: left 2s, transform 1s;
+  transition: left 1s, transform 2s;
 }
 
 @font-face {

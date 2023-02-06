@@ -49,21 +49,51 @@
   margin: 20px 0;
 }
 
+.block-content {
+  margin-bottom: 15px;
+}
+
+.information-area .block {
+  margin-bottom: 25px;
+}
+
+.information-area .block h4 {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.information-area .block h5 {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.information-area .block p {
+  font-size: 9px;
+  margin-bottom: 2px;
+}
+
+.rating-block {
+  margin: 10px 0px;
+}
+
 .block h4 {
   font-family:calibri;
+  font-size: 14px;
 }
 
 .block h5 {
   font-family: calibri;
   font-size: 12px;
-  margin: 3px 0px;
   font-weight: 600;
 }
 
 .block p,.block li {
   font-family: calibri;
   font-size: 11px;
-  margin: 3px 0px;
+}
+
+.block .institution {
+  font-weight: 400;
 }
 
 .underline {
@@ -76,7 +106,8 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
+  margin-bottom: 5px;
 }
 
 .achievement-with-institution {
@@ -84,12 +115,11 @@
 }
 
 .skill-point {
-    width: 6px;
-    height: 6px;
+    width: 18px;
+    height: 8px;
     display:inline-block;
-    margin: 0px 3px;
-    border-radius: 50%;
-    border: 1px solid black;
+    margin: 0px 0px;
+    background-color: rgb(163, 163, 163);
 }
 
 .skill-point.filled {

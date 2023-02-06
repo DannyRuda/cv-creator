@@ -50,11 +50,8 @@ function BlockContact(props) {
     <div className="block">
       <h4>Contact</h4>
       <div className="underline"></div>
-      <h5>Email Adress</h5>
       <p>{email}</p>
-      <h5>Phone Number</h5>
       <p>{phone}</p>
-      <h5>Location</h5>
       <p>{city}</p>
       <p>{country}</p>
     </div>
@@ -65,9 +62,12 @@ function BlockEducation(props) {
   const educationBlock = props.education.map((values,index) => {
     const { graduation, institution, start, end, description } = values;
     return (
-      <div key={index}>
+      <div key={index} className="block-content" >
         <div className="achievement-with-date">
-          <h5>{graduation + ", " + institution}</h5>
+          <div className="central-info" >
+          <h5>{graduation}</h5>
+          <h5 className="institution" >{institution}</h5>
+          </div>
           <p>{start + " - " + end}</p>
         </div>
         <p className="description">{description}</p>
@@ -89,7 +89,10 @@ function BlockWork(props) {
     return (
       <div key={index} >
         <div className="achievement-with-date">
-          <h5>{position + ", " + company}</h5>
+          <div>
+            <h5>{position}</h5>
+            <h5 className="institution" >{company}</h5>
+          </div>
           <p>{start + " - " + end}</p>
         </div>
         <ul>
@@ -114,7 +117,7 @@ function BlockSkills(props) {
   const skillBlocks = props.skills.map((values, index) => {
     const { skill, level } = values;
     return (
-      <div key={index}>
+      <div key={index} className="rating-block" >
         <h5>{skill}</h5>
         {getLevelBlock(level)}
       </div>
@@ -133,7 +136,7 @@ function BlockLanguages(props) {
   const languageBlocks = props.languages.map((values,index) => {
     const { language, level } = values;
     return (
-      <div key={index}>
+      <div key={index} className="rating-block" >
         <h5>{language}</h5>
         {getLevelBlock(level)}
       </div>
