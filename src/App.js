@@ -2,6 +2,7 @@ import React from "react";
 import { DataFillSectionClass } from "./components/data-fill-section/DataFillSection";
 import { CVPreview } from "./components/cv-preview-section/cvPreview";
 import { updateProgressIndicator } from "./components/data-fill-section/updateProgressIndicator";
+import { checkProgressPoints } from "./components/data-fill-section/updateProgressPoints";
 import { autofillObject } from "./components/data-fill-section/Autofill";
 import "./App.css";
 
@@ -31,8 +32,8 @@ function generateEmptyFields(box) {
     case "languages":
       return { language: "", level: "" };
       break;
-      default:
-        break;
+    default:
+      break;
   }
 }
 
@@ -43,76 +44,98 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
     this.handleAutofill = this.handleAutofill.bind(this);
+    this.updateProgressPoints = this.updateProgressPoints.bind(this);
     this.state = {
-      personal: [{ first: "", last: "", job: "", description: "" }],
-      contact: [{ country: "", city: "", phone: "", email: "" }],
-      education: [
-        {
-          graduation: "",
-          institution: "",
-          start: "",
-          end: "",
-          description: "",
-        },
-        
-      ],
-      work: [
-        { position: "", company: "", start: "", end: "", description: "" },
-      ],
-      skills: [
-        { skill: "", level: "" },
-        { skill: "", level: "" },
-      ],
-      languages: [
-        { language: "", level: "" },
-        { language: "", level: "" },
-      ],
+      values: {
+        personal: [{ first: "", last: "", job: "", description: "" }],
+        contact: [{ country: "", city: "", phone: "", email: "" }],
+        education: [
+          {
+            graduation: "",
+            institution: "",
+            start: "",
+            end: "",
+            description: "",
+          },
+        ],
+        work: [
+          { position: "", company: "", start: "", end: "", description: "" },
+        ],
+        skills: [
+          { skill: "", level: "" },
+          { skill: "", level: "" },
+        ],
+        languages: [
+          { language: "", level: "" },
+          { language: "", level: "" },
+        ],
+      },
+      progressPointsReached: {
+        Personal: false,
+        Contact: false,
+        Education: false,
+        Experience: false,
+        Additional: false,
+      },
     };
   }
 
   handleAdd(box) {
-    console.log("handleAdd was called in App.js")
-    this.setState((state, props) => {
-      let newValues = {};
-      newValues[box] = state[box].concat([
-        generateEmptyFields(box),
-      ]);
-      return newValues;
-    },()=>{updateProgressIndicator(this.state)});
+    console.log("handleAdd was called in App.js");
+    let copyState = Object.assign({},this.state);
+    copyState.values[box] = copyState.values[box].concat([generateEmptyFields(box)]);
+    this.setState(copyState,() => {
+      updateProgressIndicator(this.state.values);
+      this.updateProgressPoints();
+    })
   }
 
   handleChange(e, index, type, box) {
     const target = e.target;
-    let valuesCopy = this.state[box].slice();
+    let valuesCopy = this.state.values[box].slice();
     valuesCopy[index][type] = target.value;
 
     this.setState({ [box]: valuesCopy });
   }
 
-  handleRemove(box, index=0) {
-    let valuesCopy = this.state[box].slice();
+  handleRemove(box, index = 0) {
+    let copyState = Object.assign({},this.state);
     if (box === "languages" || box === "skills") {
-      valuesCopy.splice(index, 1);
+      copyState.values[box].splice(index, 1);
     } else {
-      valuesCopy.pop();
+      copyState.values[box].pop();
     }
-    this.setState({ [box]: valuesCopy },()=>{updateProgressIndicator(this.state)});
+    this.setState(copyState, () => {
+      updateProgressIndicator(this.state.values);
+      this.updateProgressPoints();
+    });
   }
 
   handleAutofill() {
-    this.setState(autofillObject);
+    this.setState(autofillObject, () => {
+      console.log("called from handleAutofill after state is set",this.state)
+      updateProgressIndicator(this.state.values);
+      this.updateProgressPoints();
+    });
+  }
+
+  updateProgressPoints() {
+    const copyState = checkProgressPoints(this.state);
+    this.setState(copyState);
   }
 
   render() {
-    const dataBoxesValues = this.state;
+    const dataBoxesValues = this.state.values;
     return (
       <div id="app">
         <DataFillSectionClass
           dataBoxesValues={dataBoxesValues}
+          progressPoints={this.state.progressPointsReached}
           handleAdd={this.handleAdd}
           handleChange={this.handleChange}
           handleRemove={this.handleRemove}
           handleAutofill={this.handleAutofill}
+          updateProgressPoints={this.updateProgressPoints}
         />
         <CVPreview dataBoxesValues={dataBoxesValues} />
       </div>

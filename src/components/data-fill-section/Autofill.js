@@ -1,4 +1,4 @@
-const autofillObject = {
+const autofillObject = {values:{
     personal: [{ first: "Danny", last: "Ruda", job: "Social Media Content Manager", description: "Hi, I was a freelancing social media content manager for 5 years now and during my 5 years i've helped top companies to social growth like Coca Cola, Nike, Ankerkraut and many more" }],
     contact: [{ country: "Germany", city: "Duisburg", phone: "015201420439", email: "danny.ruda1997@gmail.com" }],
     education: [
@@ -35,6 +35,8 @@ const autofillObject = {
       { language: "German", level: "Native" },
       { language: "English", level: "Fluent" },
     ],
-  };
+  },
+  
+};
 
   export {autofillObject}

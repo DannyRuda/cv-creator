@@ -18,7 +18,7 @@ function DataBox(props) {
 
   return (
     <div className="dataBoxes">
-    <button id="autofill" onClick={handleAutofill}>
+    <button id="autofill" onClick={()=>{handleAutofill();}}>
         Autofill CV
       </button>
       <Personal values={personal} handleChange={handleChange} onFocusOut={onFocusOut} />

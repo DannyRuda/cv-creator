@@ -58,6 +58,7 @@ class WorkClass extends React.Component {
               onChange={(e) => {
                 handleChange(e, index, "description", "work");
               }}
+              onBlur={onFocusOut}
             ></textarea>
             {length === index + 1 ? (
               <Buttons handleAdd={handleAdd} handleRemove={handleRemove} onBlur={onFocusOut}/>
