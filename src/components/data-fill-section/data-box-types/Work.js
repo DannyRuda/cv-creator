@@ -49,9 +49,10 @@ class WorkClass extends React.Component {
               index={index}
               onFocusOut={onFocusOut}
             />
-            <TimeFrame handleChange={handleChange} index={index} onFocusOut={onFocusOut}/>
+            <TimeFrame handleChange={handleChange} index={index} onFocusOut={onFocusOut} start={value.start} end={value.end} />
             <textarea
               placeholder="Description..."
+              value={value.description}
               col="5"
               rows="6"
               onChange={(e) => {
@@ -104,6 +105,7 @@ function TimeFrame(props) {
       <input
         type="text"
         placeholder="Start mm/yyyy"
+        value={props.start}
         onChange={(e) => {
           props.handleChange(e, props.index, "start", "work");
         }}
@@ -112,6 +114,7 @@ function TimeFrame(props) {
       <input
         type="text"
         placeholder="End mm/yyyy"
+        value={props.end}
         onChange={(e) => {
           props.handleChange(e, props.index, "end", "work");
         }}

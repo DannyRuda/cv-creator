@@ -50,9 +50,10 @@ class EducationClass extends React.Component {
               onFocusOut={onFocusOut}
               index={index}
             />
-            <TimeFrame handleChange={handleChange} onFocusOut={onFocusOut} index={index} />
+            <TimeFrame handleChange={handleChange} onFocusOut={onFocusOut} index={index} start={value.start} end={value.end} />
             <textarea
               placeholder="Description..."
+              value={value.description}
               col="5"
               rows="6"
               onChange={(e) => {
@@ -94,10 +95,10 @@ function Buttons(props) {
   return (
     <div className="buttons">
       <button onClick={props.handleAdd.bind(this,"education")}>
-        + Add Experience
+        + Add Education
       </button>
       <button onClick={props.handleRemove.bind(this,"education")}>
-        x Remove Experience
+        x Remove Education
       </button>
     </div>
   );
@@ -109,6 +110,7 @@ function TimeFrame(props) {
       <input
         type="text"
         placeholder="Start mm/yyyy"
+        value={props.start}
         onChange={(e) => {
           props.handleChange(e, props.index, "start","education");
         }}
@@ -117,6 +119,7 @@ function TimeFrame(props) {
       <input
         type="text"
         placeholder="End mm/yyyy"
+        value={props.end}
         onChange={(e) => {
           props.handleChange(e, props.index, "end","education");
         }}

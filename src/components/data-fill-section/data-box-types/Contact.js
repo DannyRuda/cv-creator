@@ -2,7 +2,7 @@ function Contact(props) {
 
   const {values,handleChange,onFocusOut} = props;
   const index = 0;
-  const {country,city,phone,email} = values;
+  const {country,city,phone,email} = values[0];
 
   return (
     <div className="data-box">

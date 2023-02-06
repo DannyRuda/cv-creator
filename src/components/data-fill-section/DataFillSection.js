@@ -70,7 +70,6 @@ class DataFillSectionClass extends React.Component {
     }
   
     render() {
-        console.log("DatafillSection alla")
       const {personal,contact,education,work,skills,languages} = this.props.dataBoxesValues;
       const {dataBoxesValues,handleAdd,handleChange,handleRemove,handleAutofill} = this.props;
     return (

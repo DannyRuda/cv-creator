@@ -2,7 +2,7 @@ function Personal(props) {
 
   const {values,handleChange,onFocusOut} = props;
   const index = 0;
-  const {first,last,job,description} = values;
+  const {first,last,job,description} = values[0];
   return (
     <div className="data-box">
       <h2 id="box-header">Personal Data</h2>

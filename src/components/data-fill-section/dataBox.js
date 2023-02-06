@@ -18,6 +18,9 @@ function DataBox(props) {
 
   return (
     <div className="dataBoxes">
+    <button id="autofill" onClick={handleAutofill}>
+        Autofill CV
+      </button>
       <Personal values={personal} handleChange={handleChange} onFocusOut={onFocusOut} />
       <Contact values={contact} handleChange={handleChange} onFocusOut={onFocusOut} />
       <EducationClass values={education} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
@@ -26,9 +29,6 @@ function DataBox(props) {
       <LanguagesClass values={languages} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
       <button id="download" onClick={downloadCV}>
         Download
-      </button>
-      <button id="download" onClick={handleAutofill}>
-        Autofill CV
       </button>
     </div>
     

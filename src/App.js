@@ -104,7 +104,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("render was called in app.js with new state")
     const dataBoxesValues = this.state;
     return (
       <div id="app">

@@ -5,7 +5,6 @@ import { ProgressPoint } from "./progressBar/progressPoint";
 
 
 function Header(props) {
-  console.log(props.progressPointsReached)
   return (
     <div className="header">
       <div className="logo">

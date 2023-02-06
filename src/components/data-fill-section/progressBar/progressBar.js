@@ -24,7 +24,6 @@ class ProgressBarClass extends React.Component {
 }
 
 function ProgressBar(props) {
-  console.log(props)
   const {Personal,Contact,Education,Experience,Additional} = props.progressPointsReached;
   return (
     <div className="progressBar-frame">
