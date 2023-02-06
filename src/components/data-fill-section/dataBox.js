@@ -14,7 +14,7 @@ import "./dataBox.css";
 function DataBox(props) {
   const {personal,contact,education,work,skills,languages} = props.boxesValues;
 
-  const {handleAdd,handleChange,handleRemove, onFocusOut} = props;
+  const {handleAdd,handleChange,handleRemove, handleAutofill, onFocusOut} = props;
 
   return (
     <div className="dataBoxes">
@@ -26,6 +26,9 @@ function DataBox(props) {
       <LanguagesClass values={languages} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
       <button id="download" onClick={downloadCV}>
         Download
+      </button>
+      <button id="download" onClick={handleAutofill}>
+        Autofill CV
       </button>
     </div>
     

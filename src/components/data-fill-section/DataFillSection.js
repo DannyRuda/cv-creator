@@ -72,11 +72,11 @@ class DataFillSectionClass extends React.Component {
     render() {
         console.log("DatafillSection alla")
       const {personal,contact,education,work,skills,languages} = this.props.dataBoxesValues;
-      const {dataBoxesValues,handleAdd,handleChange,handleRemove,} = this.props;
+      const {dataBoxesValues,handleAdd,handleChange,handleRemove,handleAutofill} = this.props;
     return (
         <div className="data-fill-section">
         <Header values={dataBoxesValues} progressPointsReached={this.state.progressPointsReached}/>
-        <DataBox boxesValues={dataBoxesValues} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={this.callOnFocusOut} />
+        <DataBox boxesValues={dataBoxesValues} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} handleAutofill={handleAutofill} onFocusOut={this.callOnFocusOut} />
     </div>
     );
     }

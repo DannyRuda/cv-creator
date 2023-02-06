@@ -2,6 +2,7 @@ import React from "react";
 import { DataFillSectionClass } from "./components/data-fill-section/DataFillSection";
 import { CVPreview } from "./components/cv-preview-section/cvPreview";
 import { updateProgressIndicator } from "./components/data-fill-section/updateProgressIndicator";
+import { autofillObject } from "./components/data-fill-section/Autofill";
 import "./App.css";
 
 function generateEmptyFields(box) {
@@ -41,6 +42,7 @@ class App extends React.Component {
     this.handleAdd = this.handleAdd.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
+    this.handleAutofill = this.handleAutofill.bind(this);
     this.state = {
       personal: [{ first: "", last: "", job: "", description: "" }],
       contact: [{ country: "", city: "", phone: "", email: "" }],
@@ -97,6 +99,10 @@ class App extends React.Component {
     this.setState({ [box]: valuesCopy },()=>{updateProgressIndicator(this.state)});
   }
 
+  handleAutofill() {
+    this.setState(autofillObject);
+  }
+
   render() {
     console.log("render was called in app.js with new state")
     const dataBoxesValues = this.state;
@@ -107,6 +113,7 @@ class App extends React.Component {
           handleAdd={this.handleAdd}
           handleChange={this.handleChange}
           handleRemove={this.handleRemove}
+          handleAutofill={this.handleAutofill}
         />
         <CVPreview dataBoxesValues={dataBoxesValues} />
       </div>
