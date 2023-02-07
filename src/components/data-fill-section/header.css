@@ -1,41 +1,57 @@
 .header {
-    width:100%;
-    height:80px;
-    display:flex;
-    justify-content: start;
-    align-items: center;
-    gap:90px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    position:sticky;
-    top:0px;
-    background-color: #eef2ff;
-    z-index:5;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 90px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  position: sticky;
+  top: 0px;
+  background-color: #eef2ff;
+  z-index: 5;
 }
 
 .alternative-header {
-    background-color: #eef2ff;
+  background-color: #eef2ff;
 
-    margin: 25px auto;
-    padding: 30px;
-    border-radius: 40px;
-    position: fixed;
-    top:0px;
-    left: 27.5%;
-transform: translateX(-50%);
+  margin: 25px auto;
+  padding: 30px;
+  border-radius: 40px;
+  position: fixed;
+  top: 0px;
+  left: 27.5%;
+  transform: translateX(-50%);
 }
 
 .alternative-header.scrolled {
-    
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
 
 .progressBar-frame {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes loadInLogo {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .logo {
-    margin-left:60px;
-    width:
+    transform: scale(0);
+    opacity: 0;
+  margin-left: 60px;
+  animation: loadInLogo 0.4s 1 normal forwards;
 }
