@@ -217,10 +217,3 @@
   top: 0;
   transform: scale(1);
 }
-
-.box-anchor {
-  position: relative;
-  top:-200px;
-  width: 10px;
-  height: 10px;
-}

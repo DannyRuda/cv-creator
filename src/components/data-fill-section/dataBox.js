@@ -1,3 +1,4 @@
+import { DemoButtons } from "./data-box-types/Demo";
 import { Personal } from "./data-box-types/Personal";
 import { Contact } from "./data-box-types/Contact";
 import { EducationClass } from "./data-box-types/Education";
@@ -14,13 +15,11 @@ import "./dataBox.css";
 function DataBox(props) {
   const {personal,contact,education,work,skills,languages} = props.boxesValues;
 
-  const {handleAdd,handleChange,handleRemove, handleAutofill, onFocusOut} = props;
+  const {handleAdd,handleChange,handleRemove, handleAutofill, handleClear, onFocusOut} = props;
 
   return (
     <div className="dataBoxes">
-    <button id="autofill" onClick={()=>{handleAutofill();}}>
-        Autofill CV
-      </button>
+      <DemoButtons handleAutofill={handleAutofill} handleClear={handleClear} />
       <Personal values={personal} handleChange={handleChange} onFocusOut={onFocusOut} />
       <Contact values={contact} handleChange={handleChange} onFocusOut={onFocusOut} />
       <EducationClass values={education} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />

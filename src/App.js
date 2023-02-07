@@ -3,7 +3,7 @@ import { DataFillSectionClass } from "./components/data-fill-section/DataFillSec
 import { CVPreview } from "./components/cv-preview-section/cvPreview";
 import { updateProgressIndicator } from "./components/data-fill-section/updateProgressIndicator";
 import { checkProgressPoints } from "./components/data-fill-section/updateProgressPoints";
-import { autofillObject } from "./components/data-fill-section/Autofill";
+import { autofillObject,clearObject } from "./components/data-fill-section/Autofill";
 import "./App.css";
 
 function generateEmptyFields(box) {
@@ -44,6 +44,7 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
     this.handleAutofill = this.handleAutofill.bind(this);
+    this.handleClear = this.handleClear.bind(this);
     this.updateProgressPoints = this.updateProgressPoints.bind(this);
     this.state = {
       values: {
@@ -113,7 +114,13 @@ class App extends React.Component {
 
   handleAutofill() {
     this.setState(autofillObject, () => {
-      console.log("called from handleAutofill after state is set",this.state)
+      updateProgressIndicator(this.state.values);
+      this.updateProgressPoints();
+    });
+  }
+
+  handleClear() {
+    this.setState(clearObject,() => {
       updateProgressIndicator(this.state.values);
       this.updateProgressPoints();
     });
@@ -135,6 +142,7 @@ class App extends React.Component {
           handleChange={this.handleChange}
           handleRemove={this.handleRemove}
           handleAutofill={this.handleAutofill}
+          handleClear={this.handleClear}
           updateProgressPoints={this.updateProgressPoints}
         />
         <CVPreview dataBoxesValues={dataBoxesValues} />

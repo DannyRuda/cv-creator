@@ -9,7 +9,8 @@ class ProgressBarClass extends React.Component {
       <div className="progressBar-frame">
         <div className="progressBar">
           <div className="progressLine">
-            <div className="startPoint"></div>
+          <div className="startPoint"></div>
+            
             <ProgressPoint number="one" category="Personal" />
             <ProgressPoint number="two" category="Contact" />
             <ProgressPoint number="three" category="Education" />
@@ -29,7 +30,7 @@ function ProgressBar(props) {
     <div className="progressBar-frame">
       <div className="progressBar">
         <div className="progressLine">
-          <div className="startPoint"></div>
+        <a href="#Demo"><div className="startPoint"></div></a>
           <ProgressPoint number="one" category="Personal" reached={Personal}/>
           <ProgressPoint number="two" category="Contact" reached={Contact} />
           <ProgressPoint number="three" category="Education" reached={Education} />

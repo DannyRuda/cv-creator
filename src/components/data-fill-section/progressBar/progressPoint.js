@@ -10,7 +10,7 @@ function ProgressPoint(props) {
       ? `progressPoint ${props.number}`
       : "progressPoint";
     return (
-      <a href={`#${props.category}`} className={className}>
+      <a href={`#${props.category}`} className={className} >
         <Point reached={props.reached} category={props.category} />
         <div className="text">{props.category}</div>
       </a>

@@ -34,15 +34,19 @@
 }
 
 @keyframes loadIn {
-  0% {  
-
+  0% {
+    transform: translateY(0px);
+  }
+  0.1%{
+    opacity: 0;
+    transform:  translateY(500px);
   }
   80% {
-    transform: rotateX(0deg) translateY(-10px);
+    transform: translateY(-10px);
   }
   100% {
     opacity: 1;
-    transform: rotateX(0deg) translateY(0px);
+    transform:  translateY(0px);
   }
 }
 
@@ -52,30 +56,28 @@
   background-color: #6366f1;
   border-radius: 10px;
   margin: 30px auto;
-  transform: translateY(500px);
+  transform: translateY(0px);
   opacity: 0;
 }
 
-#autofill {
-  transform: translateY(500px);
-  opacity: 0;
-  animation: loadIn 0.6s 1 normal forwards;
-}
-
-.data-box:nth-child(2) {
+.data-box:nth-child(1) {
   animation: loadIn 0.6s 0.1s 1 normal forwards;
 }
 
-.data-box:nth-child(3) {
+.data-box:nth-child(2) {
   animation: loadIn 0.6s 0.2s 1 normal forwards;
 }
 
-.data-box:nth-child(4) {
+.data-box:nth-child(3) {
   animation: loadIn 0.6s 0.3s 1 normal forwards;
 }
 
-.data-box:nth-child(5) {
+.data-box:nth-child(4) {
   animation: loadIn 0.6s 0.4s 1 normal forwards;
+}
+
+.data-box:nth-child(5) {
+  animation: loadIn 0.6s 0.5s 1 normal forwards;
 }
 
 .data-box:nth-child(6) {
@@ -139,6 +141,13 @@ textarea:focus {
 
 .data-box .form.no-margin {
   margin-bottom: 0px;
+}
+
+.box-anchor {
+  position: relative;
+  top: -200px;
+  width: 10px;
+  height: 10px;
 }
 
 /*
@@ -213,10 +222,10 @@ button {
   font-size: 16px;
 }
 
-button:hover {
+button:hover, #clear:hover {
   background-color: rgb(34, 32, 94);
 }
-button:active {
+button:active, #clear:active {
   background-color: #312e81;
 }
 
@@ -239,8 +248,7 @@ button:active {
   margin: 15px auto;
 }
 
-#download,
-#autofill {
+#download {
   padding: 15px 25px;
   margin: 30px auto;
   font-family: Poppins;
@@ -261,4 +269,25 @@ button:active {
 #download:active,
 #autofill:active {
   background-color: rgb(5 150 105);
+}
+
+.demo {
+  justify-content: space-around;
+}
+
+.demo button {
+  padding: 10px 25px;
+  margin:0px 0px;
+  font-family: Poppins;
+  font-weight: 600;
+  background-color: #312e81;
+  width: 180px;
+  font-size: 18px;
+  display: block;
+  color: white;
+}
+
+#clear {
+  background-color: #312e81;
+  color: white;
 }

@@ -32,11 +32,11 @@ class DataFillSectionClass extends React.Component {
   
     render() {
       const {personal,contact,education,work,skills,languages} = this.props.dataBoxesValues;
-      const {dataBoxesValues,handleAdd,handleChange,handleRemove,handleAutofill} = this.props;
+      const {dataBoxesValues,handleAdd,handleChange,handleRemove,handleAutofill,handleClear} = this.props;
     return (
         <div className="data-fill-section">
         <Header values={dataBoxesValues} progressPointsReached={this.props.progressPoints}/>
-        <DataBox boxesValues={dataBoxesValues} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} handleAutofill={handleAutofill} onFocusOut={this.callOnFocusOut} />
+        <DataBox boxesValues={dataBoxesValues} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} handleAutofill={handleAutofill} handleClear={handleClear} onFocusOut={this.callOnFocusOut} />
     </div>
     );
     }
