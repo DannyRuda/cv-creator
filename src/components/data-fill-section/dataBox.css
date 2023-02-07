@@ -59,31 +59,31 @@
 #autofill {
   transform: translateY(500px);
   opacity: 0;
-  animation: loadIn 0.4s 1 normal forwards;
+  animation: loadIn 0.6s 1 normal forwards;
 }
 
 .data-box:nth-child(2) {
-  animation: loadIn 0.4s 0.1s 1 normal forwards;
+  animation: loadIn 0.6s 0.1s 1 normal forwards;
 }
 
 .data-box:nth-child(3) {
-  animation: loadIn 0.4s 0.2s 1 normal forwards;
+  animation: loadIn 0.6s 0.2s 1 normal forwards;
 }
 
 .data-box:nth-child(4) {
-  animation: loadIn 0.4s 0.3s 1 normal forwards;
+  animation: loadIn 0.6s 0.3s 1 normal forwards;
 }
 
 .data-box:nth-child(5) {
-  animation: loadIn 0.4s 0.4s 1 normal forwards;
+  animation: loadIn 0.6s 0.4s 1 normal forwards;
 }
 
 .data-box:nth-child(6) {
-  animation: loadIn 0.4s 0.5s 1 normal forwards;
+  animation: loadIn 0.6s 0.5s 1 normal forwards;
 }
 
 .data-box:nth-child(7) {
-  animation: loadIn 0.4s 0.6s 1 normal forwards;
+  animation: loadIn 0.6s 0.6s 1 normal forwards;
 }
 
 #download {
