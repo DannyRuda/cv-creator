@@ -1,36 +1,49 @@
 @font-face {
   font-family: "Poppins";
-  src: url("./../../fonts/Poppins-Light.ttf") format("truetype") ;
+  src: url("./../../fonts/Poppins-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Poppins";
-  src: url("./../../fonts/Poppins-Regular.ttf") format("truetype") ;
+  src: url("./../../fonts/Poppins-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Poppins";
-  src: url("./../../fonts/Poppins-Medium.ttf") format("truetype") ;
+  src: url("./../../fonts/Poppins-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Poppins";
-  src: url("./../../fonts/Poppins-SemiBold.ttf") format("truetype") ;
+  src: url("./../../fonts/Poppins-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Poppins";
-  src: url("./../../fonts/Poppins-Bold.ttf") format("truetype") ;
+  src: url("./../../fonts/Poppins-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
+}
+
+@keyframes loadIn {
+  0% {  
+
+  }
+  80% {
+    transform: rotateX(0deg) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg) translateY(0px);
+  }
 }
 
 .data-box {
@@ -39,6 +52,44 @@
   background-color: #6366f1;
   border-radius: 10px;
   margin: 30px auto;
+  transform: translateY(500px);
+  opacity: 0;
+}
+
+#autofill {
+  transform: translateY(500px);
+  opacity: 0;
+  animation: loadIn 0.4s 1 normal forwards;
+}
+
+.data-box:nth-child(2) {
+  animation: loadIn 0.4s 0.1s 1 normal forwards;
+}
+
+.data-box:nth-child(3) {
+  animation: loadIn 0.4s 0.2s 1 normal forwards;
+}
+
+.data-box:nth-child(4) {
+  animation: loadIn 0.4s 0.3s 1 normal forwards;
+}
+
+.data-box:nth-child(5) {
+  animation: loadIn 0.4s 0.4s 1 normal forwards;
+}
+
+.data-box:nth-child(6) {
+  animation: loadIn 0.4s 0.5s 1 normal forwards;
+}
+
+.data-box:nth-child(7) {
+  animation: loadIn 0.4s 0.6s 1 normal forwards;
+}
+
+#download {
+  transform: translateY(500px);
+  opacity: 0;
+  animation: loadIn 0.4s 0.7s 1 normal forwards;
 }
 
 .data-box * {
@@ -69,7 +120,6 @@ select {
   transition: background-color 0.4s;
 }
 
-
 input:hover,
 select:hover,
 textarea:hover {
@@ -84,11 +134,11 @@ textarea:focus {
 }
 
 .data-box .form {
-  margin-bottom:50px;
+  margin-bottom: 50px;
 }
 
-.data-box .form.no-margin{
-  margin-bottom:0px;
+.data-box .form.no-margin {
+  margin-bottom: 0px;
 }
 
 /*
@@ -189,9 +239,10 @@ button:active {
   margin: 15px auto;
 }
 
-#download,#autofill {
+#download,
+#autofill {
   padding: 15px 25px;
-  margin:30px auto;
+  margin: 30px auto;
   font-family: Poppins;
   font-weight: 600;
   background-color: #34d399;
@@ -202,11 +253,12 @@ button:active {
   color: black;
 }
 
-#download:hover,#autofill:hover {
+#download:hover,
+#autofill:hover {
   background-color: rgb(16 185 129);
 }
 
-#download:active,#autofill:active {
+#download:active,
+#autofill:active {
   background-color: rgb(5 150 105);
 }
-

@@ -9,6 +9,7 @@
     position:sticky;
     top:0px;
     background-color: #eef2ff;
+    z-index:5;
 }
 
 .alternative-header {
