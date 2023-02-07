@@ -15,12 +15,29 @@
   --indicator-portion: calc(0);
 }
 
+@keyframes loadInStartpoint {
+  0%{
+    transform: translateY(var(--point-translateY)) scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(var(--point-translateY)) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(var(--point-translateY)) scale(1);
+    opacity: 1;
+  }
+}
+
 .startPoint{
   --point-translateY: calc((var(--line-thickness) - var(--start-point-diameter)) / 2);
   width: var(--start-point-diameter);
   height: var(--start-point-diameter);
   position: absolute;
-  transform: translateY(var(--point-translateY));
+  transform: translateY(var(--point-translateY)) scale(0);
+  opacity:0;
+  animation: loadInStartpoint 0.4s ease-out 1 normal forwards;
   z-index: 10;
   background-color: #34d399;
   border-radius: 50%;
@@ -52,6 +69,21 @@
   transition:width 0.3s, transform 0.3s;
 }
 
+@keyframes loadInPoints {
+  0%{
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .point {
   width: var(--point-diameter);
   height: var(--point-diameter);
@@ -60,11 +92,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: scale(0);
+  opacity:0;
+  animation: loadInPoints 0.4s ease-out 1 normal forwards;
   transition: width 0.3s, height 0.3s, background-color 0.3s;
 }
 
 .point.reached {
   background-color: #34d399;
+}
+
+.progressPoint.one .point{
+  animation: loadInPoints 0.4s ease-out 0.1s 1 normal forwards;
+}
+
+.progressPoint.two .point{
+  animation: loadInPoints 0.4s ease-out 0.2s 1 normal forwards;
+}
+
+.progressPoint.three .point{
+  animation: loadInPoints 0.4s ease-out 0.3s 1 normal forwards;
+}
+
+.progressPoint.four .point{
+  animation: loadInPoints 0.4s ease-out 0.4s 1 normal forwards;
+}
+
+.progressPoint.five .point{
+  animation: loadInPoints 0.4s ease-out 0.5s 1 normal forwards;
 }
 
 .progressBar .progressPoint {
