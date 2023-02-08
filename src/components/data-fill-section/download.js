@@ -20,7 +20,7 @@ function downloadCV() {
 
 function hideAndScaleCV(cv) {
   cv.style.left = "1000px";
-  cv.style.transform = "scale(1.5)";
+  cv.style.transform = "scale(1.5) ";
 }
 
 function showCV(cv) {

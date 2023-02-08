@@ -31,10 +31,9 @@
   background-color: white;
   width: 530px;
   height: 750px;
-  transform: scale(1.1);
+  transform: scale(1.1) translateX(800px);
   position: relative;
   left:0px;
-  opacity: 0;
   animation: loadInCV 0.6s 0.1s 1 normal forwards;
   transition: left 1s, transform 2s;
 }
