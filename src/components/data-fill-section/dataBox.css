@@ -327,7 +327,6 @@ button:active, #clear:active {
   z-index: 5;
   left: 0px;
   transform: translate(-200%,0px);
-
 }
 
 .download-anchor.fresh {

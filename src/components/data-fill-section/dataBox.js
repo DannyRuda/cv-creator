@@ -20,6 +20,7 @@ function DataBox(props) {
 
   return (
     <div className="dataBoxes">
+      <DownloadAnchor  values={props.boxesValues} />
       <DemoButtons handleAutofill={handleAutofill} handleClear={handleClear} values={props.boxesValues} />
       <Personal values={personal} handleChange={handleChange} onFocusOut={onFocusOut} />
       <Contact values={contact} handleChange={handleChange} onFocusOut={onFocusOut} />
