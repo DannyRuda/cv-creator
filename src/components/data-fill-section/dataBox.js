@@ -9,6 +9,7 @@ import { LanguagesClass } from "./data-box-types/Languages";
 import {React, createRef} from "react"
 import { useScreenshot } from "use-react-screenshot";
 import { jsPDF } from "jspdf";import { downloadCV } from "./download";
+import { DownloadAnchor } from "./download";
 import "./dataBox.css";
 
 
@@ -19,7 +20,8 @@ function DataBox(props) {
 
   return (
     <div className="dataBoxes">
-      <DemoButtons handleAutofill={handleAutofill} handleClear={handleClear} />
+      <DownloadAnchor  values={props.boxesValues} />
+      <DemoButtons handleAutofill={handleAutofill} handleClear={handleClear}/>
       <Personal values={personal} handleChange={handleChange} onFocusOut={onFocusOut} />
       <Contact values={contact} handleChange={handleChange} onFocusOut={onFocusOut} />
       <EducationClass values={education} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />

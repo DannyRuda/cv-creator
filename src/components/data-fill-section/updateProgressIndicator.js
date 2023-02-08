@@ -55,6 +55,15 @@ function getPortionOfReachedStagesAndPoints(reachedStages) {
   return reachedStages * (pointPortion + stagePortion);
 }
 
+function allBoxesFull(values) {
+  const { personal, contact, education, work, skills, languages } = values;
+  if(boxValuesFull(skills) && boxValuesFull(languages) && boxValuesFull(work) && boxValuesFull(education) && boxValuesFull(contact) && boxValuesFull(personal)) {
+    return true;
+  } else {
+    return false;
+  }
+} 
+
 function updateProgressIndicator(values) {
   const { personal, contact, education, work, skills, languages } = values;
   const progressBar = document.querySelector(".progressBar");
@@ -121,4 +130,4 @@ function updateProgressIndicator(values) {
   progressBar.style.setProperty("--indicator-portion", portion);
 }
 
-export { updateProgressIndicator,boxValuesFull };
+export { updateProgressIndicator,boxValuesFull, allBoxesFull};

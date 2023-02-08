@@ -113,7 +113,8 @@ class App extends React.Component {
   }
 
   handleAutofill() {
-    this.setState(autofillObject, () => {
+    const newAutofillObject = JSON.parse(JSON.stringify(autofillObject))
+    this.setState(newAutofillObject, () => {
       updateProgressIndicator(this.state.values);
       this.updateProgressPoints();
     });

@@ -50,8 +50,12 @@
   }
 }
 
+.dataBoxes {
+  --box-width: 500px;
+}
+
 .data-box {
-  width: 500px;
+  width: var(--box-width);
   padding-bottom: 20px;
   background-color: #6366f1;
   border-radius: 10px;
@@ -85,6 +89,10 @@
 }
 
 .data-box:nth-child(7) {
+  animation: loadIn 0.6s 0.6s 1 normal forwards;
+}
+
+.data-box:nth-child(8) {
   animation: loadIn 0.6s 0.6s 1 normal forwards;
 }
 
@@ -290,4 +298,64 @@ button:active, #clear:active {
 #clear {
   background-color: #312e81;
   color: white;
+}
+
+@keyframes loadInDownloadAnchor {
+  0%{
+    transform: scale(0) translate(-50%,0px);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.2) translate(-50%,0px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translate(-50%,0px);
+    opacity: 1;
+  }
+}
+
+.download-anchor {
+  --shift-left: calc((55%*0.5 - var(--box-width)/2)/2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height:40px;
+  border-radius: 50%;
+  background-color: #34d399;
+  position: fixed;
+  z-index: 5;
+  left: var(--shift-left);
+  transform: translate(-50%,0px);
+
+}
+
+.download-anchor.fresh {
+  animation: loadInDownloadAnchor 0.4s 1 normal forwards;
+}
+
+.hide{
+  display:none;
+}
+
+.download-anchor:hover {
+  animation: bounceDownloadAnchor 0.4s 1 normal forwards;
+}
+
+.download-icon {
+  transform: translate(-1px,-1px);
+  pointer-events: none;
+}
+
+@keyframes bounceDownloadAnchor {
+  0%{
+    transform: translate(-50%,0px);
+  }
+  50%{
+    transform: translate(-50%,10px);
+  }
+  100%{
+    transform: translate(-50%,0px);
+  }
 }
