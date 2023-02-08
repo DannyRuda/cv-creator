@@ -14,7 +14,6 @@ function DemoButtons(props) {
 function Buttons(props) {
   return (
     <div className="buttons demo">
-        <DownloadAnchor  values={props.values} />
       <button id="autofill" onClick={props.handleAutofill}>
         Autofill
       </button>
