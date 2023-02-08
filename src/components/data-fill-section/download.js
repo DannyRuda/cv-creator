@@ -28,6 +28,7 @@ function showCV(cv) {
   cv.style.left = "0";
 }
 
+
 function DownloadAnchor(props) {
   return allBoxesFull(props.values) ? 
     (<a
