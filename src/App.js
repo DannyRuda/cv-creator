@@ -7,7 +7,11 @@ import {
   autofillObject,
   clearObject,
 } from "./components/data-fill-section/Autofill";
-import { determineSection } from "./determineSection";
+import {
+  determineSection,
+  determineWidth,
+  updateWidth,
+} from "./determineSection";
 import "./App.css";
 
 function generateEmptyFields(box) {
@@ -49,6 +53,7 @@ class App extends React.Component {
     this.handleRemove = this.handleRemove.bind(this);
     this.handleAutofill = this.handleAutofill.bind(this);
     this.handleClear = this.handleClear.bind(this);
+    this.switchSections = this.switchSections.bind(this);
     this.updateProgressPoints = this.updateProgressPoints.bind(this);
     this.state = {
       values: {
@@ -83,6 +88,7 @@ class App extends React.Component {
         Additional: false,
       },
       sections: "both",
+      width: "",
     };
   }
 
@@ -139,14 +145,32 @@ class App extends React.Component {
     this.setState(copyState);
   }
 
-  updateSections() {
-    const copyState = Object.assign({}, this.state);
-    copyState.sections = determineSection();
+  switchSections() {
+    console.log("switch sections")
+    const copyState = JSON.parse(JSON.stringify(this.state));
+    copyState.sections = copyState.sections === "data-fill" ? "cv-preview" : "data-fill";
     this.setState(copyState);
   }
 
+  update() {
+    this.setState((state,props)=>{
+      const copyState = JSON.parse(JSON.stringify(state));
+      if(copyState.width !== window.innerWidth) {
+        copyState.width = window.innerWidth;
+        if(copyState.width > 1150 && copyState.sections!=="both") {
+          copyState.sections = "both"
+        } 
+        else if(copyState.width <= 1150 && copyState.sections === "both") {
+          copyState.sections = "data-fill";
+        }
+      }
+      return copyState;
+    })
+  }
+
   componentDidMount() {
-    window.setInterval(()=>{this.updateSections();},100)
+    this.update();
+    window.setInterval(()=>{this.update()},2)
   }
 
   render() {
@@ -163,8 +187,9 @@ class App extends React.Component {
             handleAutofill={this.handleAutofill}
             handleClear={this.handleClear}
             updateProgressPoints={this.updateProgressPoints}
+            switchLogic={false}
           />
-          <CVPreview dataBoxesValues={dataBoxesValues} />
+          <CVPreview dataBoxesValues={dataBoxesValues} switchLogic={false} />
         </div>
       ) : this.state.sections === "data-fill" ? (
         <div id="app">
@@ -177,11 +202,17 @@ class App extends React.Component {
             handleAutofill={this.handleAutofill}
             handleClear={this.handleClear}
             updateProgressPoints={this.updateProgressPoints}
+            switchSections={this.switchSections}
+            switchLogic={true}
           />
         </div>
       ) : (
         <div id="app">
-          <CVPreview dataBoxesValues={dataBoxesValues} />
+          <CVPreview
+            dataBoxesValues={dataBoxesValues}
+            switchLogic={true}
+            switchSections={this.switchSections}
+          />
         </div>
       );
     return sections;

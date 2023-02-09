@@ -256,25 +256,40 @@ button:active, #clear:active {
   margin: 15px auto;
 }
 
-#download {
+.buttons-data-box {
+  margin:30px auto;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
+}
+
+.buttons-data-box button {
   padding: 15px 25px;
-  margin: 30px auto;
+  font-family: Poppins;
+  font-weight: 600;
+  width: 180px;
+  font-size: 18px;
+}
+
+.download {
+  padding: 15px 25px;
   font-family: Poppins;
   font-weight: 600;
   background-color: #34d399;
   width: 180px;
   font-size: 18px;
-
+  margin:30px auto;
   display: block;
   color: black;
 }
 
-#download:hover,
+.download:hover,
 #autofill:hover {
   background-color: rgb(16 185 129);
 }
 
-#download:active,
+.download:active,
 #autofill:active {
   background-color: rgb(5 150 105);
 }

@@ -6,33 +6,96 @@ import { WorkClass } from "./data-box-types/Work";
 import { Additional } from "./data-box-types/Additional";
 import { Skills, SkillsClass } from "./data-box-types/Skills";
 import { LanguagesClass } from "./data-box-types/Languages";
-import {React, createRef} from "react"
+import { React, createRef } from "react";
 import { useScreenshot } from "use-react-screenshot";
-import { jsPDF } from "jspdf";import { downloadCV } from "./download";
+import { jsPDF } from "jspdf";
+import { downloadCV } from "./download";
 import { DownloadAnchor } from "./download";
 import "./dataBox.css";
 
-
 function DataBox(props) {
-  const {personal,contact,education,work,skills,languages} = props.boxesValues;
+  const { personal, contact, education, work, skills, languages } =
+    props.boxesValues;
 
-  const {handleAdd,handleChange,handleRemove, handleAutofill, handleClear, onFocusOut} = props;
+  const {
+    handleAdd,
+    handleChange,
+    handleRemove,
+    handleAutofill,
+    handleClear,
+    onFocusOut,
+    switchSections,
+    switchLogic,
+  } = props;
 
   return (
     <div className="dataBoxes">
-      <DownloadAnchor  values={props.boxesValues} />
-      <DemoButtons handleAutofill={handleAutofill} handleClear={handleClear} values={props.boxesValues} />
-      <Personal values={personal} handleChange={handleChange} onFocusOut={onFocusOut} />
-      <Contact values={contact} handleChange={handleChange} onFocusOut={onFocusOut} />
-      <EducationClass values={education} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
-      <WorkClass values={work} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
-      <SkillsClass values={skills} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
-      <LanguagesClass values={languages} handleAdd={handleAdd} handleChange={handleChange} handleRemove={handleRemove} onFocusOut={onFocusOut} />
-      <button id="download" onClick={downloadCV}>
+      <DownloadAnchor values={props.boxesValues} />
+      <DemoButtons
+        handleAutofill={handleAutofill}
+        handleClear={handleClear}
+        values={props.boxesValues}
+      />
+      <Personal
+        values={personal}
+        handleChange={handleChange}
+        onFocusOut={onFocusOut}
+      />
+      <Contact
+        values={contact}
+        handleChange={handleChange}
+        onFocusOut={onFocusOut}
+      />
+      <EducationClass
+        values={education}
+        handleAdd={handleAdd}
+        handleChange={handleChange}
+        handleRemove={handleRemove}
+        onFocusOut={onFocusOut}
+      />
+      <WorkClass
+        values={work}
+        handleAdd={handleAdd}
+        handleChange={handleChange}
+        handleRemove={handleRemove}
+        onFocusOut={onFocusOut}
+      />
+      <SkillsClass
+        values={skills}
+        handleAdd={handleAdd}
+        handleChange={handleChange}
+        handleRemove={handleRemove}
+        onFocusOut={onFocusOut}
+      />
+      <LanguagesClass
+        values={languages}
+        handleAdd={handleAdd}
+        handleChange={handleChange}
+        handleRemove={handleRemove}
+        onFocusOut={onFocusOut}
+      />
+      {switchLogic ? (
+        <button className="download" id="download" onClick={switchSections}>
+          Show CV
+        </button>
+      ) : (
+        <button className="download" id="download" onClick={downloadCV}>
+          Download
+        </button>
+      )}
+    </div>
+  );
+}
+function Buttons(props) {
+  return (
+    <div className="buttons-data-box">
+      <button className="download" onClick={downloadCV}>
         Download
       </button>
+      <button className="preview" onClick={downloadCV}>
+        Preview
+      </button>
     </div>
-    
   );
 }
 
