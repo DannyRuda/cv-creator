@@ -3,7 +3,15 @@ import { DataFillSectionClass } from "./components/data-fill-section/DataFillSec
 import { CVPreview } from "./components/cv-preview-section/cvPreview";
 import { updateProgressIndicator } from "./components/data-fill-section/updateProgressIndicator";
 import { checkProgressPoints } from "./components/data-fill-section/updateProgressPoints";
-import { autofillObject,clearObject } from "./components/data-fill-section/Autofill";
+import {
+  autofillObject,
+  clearObject,
+} from "./components/data-fill-section/Autofill";
+import {
+  determineSection,
+  determineWidth,
+  updateWidth,
+} from "./determineSection";
 import "./App.css";
 
 function generateEmptyFields(box) {
@@ -45,6 +53,7 @@ class App extends React.Component {
     this.handleRemove = this.handleRemove.bind(this);
     this.handleAutofill = this.handleAutofill.bind(this);
     this.handleClear = this.handleClear.bind(this);
+    this.switchSections = this.switchSections.bind(this);
     this.updateProgressPoints = this.updateProgressPoints.bind(this);
     this.state = {
       values: {
@@ -78,17 +87,21 @@ class App extends React.Component {
         Experience: false,
         Additional: false,
       },
+      sections: "both",
+      width: "",
     };
   }
 
   handleAdd(box) {
     console.log("handleAdd was called in App.js");
-    let copyState = Object.assign({},this.state);
-    copyState.values[box] = copyState.values[box].concat([generateEmptyFields(box)]);
-    this.setState(copyState,() => {
+    let copyState = Object.assign({}, this.state);
+    copyState.values[box] = copyState.values[box].concat([
+      generateEmptyFields(box),
+    ]);
+    this.setState(copyState, () => {
       updateProgressIndicator(this.state.values);
       this.updateProgressPoints();
-    })
+    });
   }
 
   handleChange(e, index, type, box) {
@@ -100,7 +113,7 @@ class App extends React.Component {
   }
 
   handleRemove(box, index = 0) {
-    let copyState = Object.assign({},this.state);
+    let copyState = Object.assign({}, this.state);
     if (box === "languages" || box === "skills") {
       copyState.values[box].splice(index, 1);
     } else {
@@ -113,7 +126,7 @@ class App extends React.Component {
   }
 
   handleAutofill() {
-    const newAutofillObject = JSON.parse(JSON.stringify(autofillObject))
+    const newAutofillObject = JSON.parse(JSON.stringify(autofillObject));
     this.setState(newAutofillObject, () => {
       updateProgressIndicator(this.state.values);
       this.updateProgressPoints();
@@ -133,23 +146,77 @@ class App extends React.Component {
     this.setState(copyState);
   }
 
+  switchSections() {
+    console.log("switch sections")
+    const copyState = JSON.parse(JSON.stringify(this.state));
+    copyState.sections = copyState.sections === "data-fill" ? "cv-preview" : "data-fill";
+    this.setState(copyState);
+  }
+
+  update() {
+    this.setState((state,props)=>{
+      const copyState = JSON.parse(JSON.stringify(state));
+      if(copyState.width !== window.innerWidth) {
+        copyState.width = window.innerWidth;
+        if(copyState.width > 1150 && copyState.sections!=="both") {
+          copyState.sections = "both"
+        } 
+        else if(copyState.width <= 1150 && copyState.sections === "both") {
+          copyState.sections = "data-fill";
+        }
+      }
+      return copyState;
+    })
+  }
+
+  componentDidMount() {
+    this.update();
+    window.setInterval(()=>{this.update()},2)
+  }
+
   render() {
     const dataBoxesValues = this.state.values;
-    return (
-      <div id="app">
-        <DataFillSectionClass
-          dataBoxesValues={dataBoxesValues}
-          progressPoints={this.state.progressPointsReached}
-          handleAdd={this.handleAdd}
-          handleChange={this.handleChange}
-          handleRemove={this.handleRemove}
-          handleAutofill={this.handleAutofill}
-          handleClear={this.handleClear}
-          updateProgressPoints={this.updateProgressPoints}
-        />
-        <CVPreview dataBoxesValues={dataBoxesValues} />
-      </div>
-    );
+    const sections =
+      this.state.sections === "both" ? (
+        <div id="app">
+          <DataFillSectionClass
+            dataBoxesValues={dataBoxesValues}
+            progressPoints={this.state.progressPointsReached}
+            handleAdd={this.handleAdd}
+            handleChange={this.handleChange}
+            handleRemove={this.handleRemove}
+            handleAutofill={this.handleAutofill}
+            handleClear={this.handleClear}
+            updateProgressPoints={this.updateProgressPoints}
+            switchLogic={false}
+          />
+          <CVPreview dataBoxesValues={dataBoxesValues} switchLogic={false} />
+        </div>
+      ) : this.state.sections === "data-fill" ? (
+        <div id="app">
+          <DataFillSectionClass
+            dataBoxesValues={dataBoxesValues}
+            progressPoints={this.state.progressPointsReached}
+            handleAdd={this.handleAdd}
+            handleChange={this.handleChange}
+            handleRemove={this.handleRemove}
+            handleAutofill={this.handleAutofill}
+            handleClear={this.handleClear}
+            updateProgressPoints={this.updateProgressPoints}
+            switchSections={this.switchSections}
+            switchLogic={true}
+          />
+        </div>
+      ) : (
+        <div id="app">
+          <CVPreview
+            dataBoxesValues={dataBoxesValues}
+            switchLogic={true}
+            switchSections={this.switchSections}
+          />
+        </div>
+      );
+    return sections;
   }
 }
 export default App;

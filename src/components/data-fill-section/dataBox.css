@@ -256,25 +256,40 @@ button:active, #clear:active {
   margin: 15px auto;
 }
 
-#download {
+.buttons-data-box {
+  margin:30px auto;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
+}
+
+.buttons-data-box button {
   padding: 15px 25px;
-  margin: 30px auto;
+  font-family: Poppins;
+  font-weight: 600;
+  width: 180px;
+  font-size: 18px;
+}
+
+.download {
+  padding: 15px 25px;
   font-family: Poppins;
   font-weight: 600;
   background-color: #34d399;
   width: 180px;
   font-size: 18px;
-
+  margin:30px auto;
   display: block;
   color: black;
 }
 
-#download:hover,
+.download:hover,
 #autofill:hover {
   background-color: rgb(16 185 129);
 }
 
-#download:active,
+.download:active,
 #autofill:active {
   background-color: rgb(5 150 105);
 }
@@ -302,16 +317,17 @@ button:active, #clear:active {
 
 @keyframes loadInDownloadAnchor {
   0%{
-    transform: scale(0) translate(200%,0px);
+    transform: scale(1) translate(350px,105px);
     opacity: 0;
   }
   70% {
-    transform: scale(1) translate(-230%,0px);
+    transform: scale(1) translate(calc((55vw - 500px)/4 - 50% - 10px),105px);
     opacity: 1;
   }
   100% {
-    transform: scale(1) translate(-200%,0px);
+    transform: scale(1) translate(calc((55vw - 500px)/4 - 50% ),105px);
     opacity: 1;
+    pointer-events: auto;
   }
 }
 
@@ -326,12 +342,13 @@ button:active, #clear:active {
   position: fixed;
   z-index: 5;
   left: 0px;
-  transform: translate(-200%,0px);
-
+  --translate-x:calc((55vw - 500px)/4 - 50%);
+  transform: scale(1) translate(var(--translate-x),105px);
 }
 
 .download-anchor.fresh {
   animation: loadInDownloadAnchor 0.4s 1 normal forwards;
+  pointer-events: none;
 }
 
 .hide{
@@ -349,12 +366,12 @@ button:active, #clear:active {
 
 @keyframes bounceDownloadAnchor {
   0%{
-    transform: scale(1) translate(-200%,0px);
+    transform: scale(1) translate(calc((55vw - 500px)/4 - 50%),105px);
   }
   50%{
-    transform: scale(1) translate(-200%,10px);
+    transform: scale(1) translate(calc((55vw - 500px)/4 - 50%),115px);
   }
   100%{
-    transform: scale(1) translate(-200%,0px);
+    transform: scale(1) translate(calc((55vw - 500px)/4 - 50%),105px);
   }
 }

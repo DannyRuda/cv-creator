@@ -12,16 +12,15 @@
 }
 
 @keyframes loadInCV {
-  0%{
+  0% {
     opacity: 0;
     transform: scale(1.1) translateX(800px);
   }
-  80%{
+  80% {
     opacity: 1;
     transform: scale(1.1) translateX(-20px);
   }
-  100%{
-
+  100% {
     opacity: 1;
     transform: scale(1.1) translateX(0px);
   }
@@ -33,14 +32,31 @@
   height: 750px;
   transform: scale(1.1) translateX(800px);
   position: relative;
-  left:0px;
+  left: 0px;
   animation: loadInCV 0.6s 0.1s 1 normal forwards;
   transition: left 1s, transform 2s;
+  margin-top: 20px;
 }
 
 @font-face {
   font-family: Poppins;
   src: url(./../../fonts/Poppins-SemiBold.ttf) format("truetype");
-  weight:600;
-  type:normal;
+  weight: 600;
+  type: normal;
+}
+
+.buttons.cv-section {
+  width:583px;
+  justify-content: space-between;
+}
+
+.cv-section .download {
+  margin:0px;
+}
+
+.buttons.cv-section button {
+  width:180px;
+  padding: 15px 25px;
+  font-size: 18px;
+  font-family: Poppins;
 }

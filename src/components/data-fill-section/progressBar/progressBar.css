@@ -2,7 +2,7 @@
 }
 
 .progressBar {
-  width: 500px;
+  width: var(--bar-length);
   margin: 0px auto;
   --line-thickness: 8px;
   --static-point-diameter: 38px;
