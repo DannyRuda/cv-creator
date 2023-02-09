@@ -44,7 +44,7 @@ function showCV(cv) {
 function Buttons(props) {
   return (
     <div className="buttons cv-section">
-      <button className="edit" onClick={props.switchSections}>
+      <button className="edit" onClick={()=>{props.switchSections();}}>
         Edit
       </button>
       <button className="download" onClick={downloadCV}>

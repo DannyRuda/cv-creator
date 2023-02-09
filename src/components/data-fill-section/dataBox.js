@@ -6,11 +6,10 @@ import { WorkClass } from "./data-box-types/Work";
 import { Additional } from "./data-box-types/Additional";
 import { Skills, SkillsClass } from "./data-box-types/Skills";
 import { LanguagesClass } from "./data-box-types/Languages";
-import { React, createRef } from "react";
-import { useScreenshot } from "use-react-screenshot";
-import { jsPDF } from "jspdf";
+import { React, useEffect } from "react";
 import { downloadCV } from "./download";
 import { DownloadAnchor } from "./download";
+import { updateProgressIndicator } from "./updateProgressIndicator";
 import "./dataBox.css";
 
 function DataBox(props) {
@@ -27,6 +26,10 @@ function DataBox(props) {
     switchSections,
     switchLogic,
   } = props;
+
+  useEffect(() => {
+    updateProgressIndicator(props.boxesValues);
+  });
 
   return (
     <div className="dataBoxes">

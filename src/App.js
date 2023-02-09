@@ -134,7 +134,8 @@ class App extends React.Component {
   }
 
   handleClear() {
-    this.setState(clearObject, () => {
+    const newClearObject = JSON.parse(JSON.stringify(clearObject))
+    this.setState(newClearObject,() => {
       updateProgressIndicator(this.state.values);
       this.updateProgressPoints();
     });
