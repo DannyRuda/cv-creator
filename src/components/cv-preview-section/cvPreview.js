@@ -26,7 +26,7 @@ function CVPreview(props) {
   return (
     <div className="cv-preview">
       <CV screenshot={screenshotRef} values={props.dataBoxesValues} />
-      <Buttons switchSections={props.switchSections} values={props.values}  />
+      {props.switchLogic ? (<Buttons switchSections={props.switchSections} values={props.values}  />) : ""}
     </div>
   );
 }
@@ -44,7 +44,7 @@ function showCV(cv) {
 function Buttons(props) {
   return (
     <div className="buttons cv-section">
-      <button className="edit" onClick={props.switchSections}>
+      <button className="edit" onClick={()=>{props.switchSections();}}>
         Edit
       </button>
       <button className="download" onClick={downloadCV}>

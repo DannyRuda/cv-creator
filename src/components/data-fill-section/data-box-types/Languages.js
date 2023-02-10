@@ -60,7 +60,7 @@ class LanguagesClass extends React.Component {
     const length = values.length;
     const inputs = values.map((value, index) => {
       return (
-        <div key={index} className="input-row" >
+        <div key={index} className="input-row levels" >
           <input
             type="text"
             placeholder="Language"
@@ -87,7 +87,7 @@ class LanguagesClass extends React.Component {
       );
     });
     return (
-      <div className="data-box">
+      <div className="data-box language-box">
         <h2 id="box-header">Languages</h2>
         <div className="form no-margin">
           <form onSubmit={this.blockSubmit}>

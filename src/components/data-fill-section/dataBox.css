@@ -321,11 +321,11 @@ button:active, #clear:active {
     opacity: 0;
   }
   70% {
-    transform: scale(1) translate(calc((55vw - 500px)/4 - 50% - 10px),105px);
+    transform: scale(1) translate(calc(var(--translate-x) - 10px),105px);
     opacity: 1;
   }
   100% {
-    transform: scale(1) translate(calc((55vw - 500px)/4 - 50% ),105px);
+    transform: scale(1) translate(var(--translate-x),105px);
     opacity: 1;
     pointer-events: auto;
   }
@@ -366,12 +366,12 @@ button:active, #clear:active {
 
 @keyframes bounceDownloadAnchor {
   0%{
-    transform: scale(1) translate(calc((55vw - 500px)/4 - 50%),105px);
+    transform: scale(1) translate(var(--translate-x),105px);
   }
   50%{
-    transform: scale(1) translate(calc((55vw - 500px)/4 - 50%),115px);
+    transform: scale(1) translate(var(--translate-x),115px);
   }
   100%{
-    transform: scale(1) translate(calc((55vw - 500px)/4 - 50%),105px);
+    transform: scale(1) translate(var(--translate-x),105px);
   }
 }

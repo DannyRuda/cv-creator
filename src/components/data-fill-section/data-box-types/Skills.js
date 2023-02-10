@@ -38,7 +38,7 @@ class SkillsClass extends React.Component {
     const length = values.length;
     const inputs = values.map((value, index) => {
       return (
-        <div key={index} className="input-row" >
+        <div key={index} className="input-row levels" >
           <input
             type="text"
             placeholder="Skill"

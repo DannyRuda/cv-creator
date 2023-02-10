@@ -1,98 +1,282 @@
-@media only screen  and (max-width:1564px) {
-
-    @keyframes loadInLogoSmall {
-        0% {
-          transform: translate(-50%,-300px);
-          opacity: 0;
-        }
-        70% {
-          transform: translate(-50%,10px);
-          opacity: 0.6;
-        }
-        100% {
-          transform: translate(-50%,0px);
-          opacity: 1;
-        }
-      }
-
-    .logo {
-        margin-left:calc((50% - 250px)/2);
-        animation: loadInLogoSmall 0.6s 1 normal forwards;
+@media only screen and (max-width: 1564px) and (min-width: 1151px),
+  only screen and (max-width: 860px) {
+  @keyframes loadInLogoSmall {
+    0% {
+      transform: translate(-50%, -300px);
+      opacity: 0;
     }
-}
-
-@media only screen and (max-width:1324px) {
-    .logo {
-        width: 40px;
-        height: 40px;
+    70% {
+      transform: translate(-50%, 10px);
+      opacity: 0.6;
     }
-
-    .logo img{
-        width:40px;
-        height:40px;
+    100% {
+      transform: translate(-50%, 0px);
+      opacity: 1;
     }
-
-    
-}
-
-@media only screen and (max-width:1364px) {
-    @keyframes loadInCVsmall {
-        0%{
-            opacity: 0;
-            transform: scale(0.9) translateX(800px);
-          }
-          80%{
-            opacity: 1;
-            transform: scale(0.9) translateX(-20px);
-          }
-          100%{
-        
-            opacity: 1;
-            transform: scale(0.9) translateX(0px);
-          }
-    }
-    .cv-preview .cv {
-        animation: loadInCVsmall 0.6s 0.1s 1 normal forwards;
-    }
-}
-
-@media only screen and (max-width:1174px) {
-    .progressBar {
-        --bar-length: 400px;
-        --point-distance:43px;
-    }
-
-    @keyframes loadInLogoSmall {
-        0% {
-          transform: translate(-50%,-300px);
-          opacity: 0;
-        }
-        70% {
-          transform: translate(-50%,10px);
-          opacity: 0.6;
-        }
-        100% {
-          transform: translate(-50%,0px);
-          opacity: 1;
-        }
-      }
-
-    .logo {
-        margin-left:calc((50% - 200px)/2);
-        animation: loadInLogoSmall 0.6s 1 normal forwards;
-    }
-}   
-
-@media only screen and (max-width:1150px) {
-  .download{
-  
   }
 
-  .data-fill-section{
-    width:100%;
+  .logo {
+    margin-left: calc((50% - 250px) / 2);
+    animation: loadInLogoSmall 0.6s 1 normal forwards;
+  }
+}
+
+@media only screen and (max-width: 1324px) and (min-width: 1151px),
+  only screen and (max-width: 860px) {
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media only screen and (max-width: 1364px) and (min-width: 1151px),
+  only screen and (max-width: 620px) {
+  .cv-preview .cv {
+    --scale: 0.9;
+  }
+
+  .buttons.cv-section {
+    width: 477px;
+  }
+}
+
+@media only screen and (max-width: 1174px) and (min-width: 1151px),
+  only screen and (max-width: 680px) {
+  .progressBar {
+    --bar-length: 400px;
+    --point-distance: 43px;
+  }
+
+  .logo {
+    margin-left: calc((50% - 200px) / 2);
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .download-anchor {
+    --translate-x: calc((100vw - 500px) / 4 - 50%);
+  }
+
+  .data-fill-section {
+    width: 100%;
   }
 
   .cv-preview {
     width: 100%;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .cv {
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .data-box {
+    min-width: 280px;
+    width: 80%;
+  }
+
+  .download-anchor {
+    --translate-x: calc((100vw - 100vw * 0.8) / 4 - 50%);
+  }
+
+  .cv {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .progressBar {
+    --bar-length: 300px;
+    --point-distance: 24px;
+  }
+
+  .logo {
+    margin-left: calc((50% - 150px) / 2);
+  }
+
+  .demo button {
+    width:45%;
+    padding:5px 0px;
+    font-size: 14px;
+  }
+
+  .buttons button {
+    font-size: 14px;
+  }
+
+  .add {
+    font-size: 14px;
+  }
+
+  .cv-preview .cv {
+    margin: 0px;
+    --scale: 0.7;
+  }
+
+  .buttons.cv-section {
+    width: 371px;
+    position: relative;
+    bottom: 50px;
+  }
+
+  .buttons.cv-section button {
+    padding: 10px 10px;
+    width: 140px;
+    font-size: 14px;
+  }
+
+  .download-anchor{
+    display:none;
+  }
+}
+
+
+
+@media only screen and (max-width: 490px) {
+
+  #box-header{
+    margin-bottom:0px;
+    font-size: 16px;
+    padding-top: 8px;
+  }
+
+  .demo-box #box-header {
+    font-size: 18px;
+    padding-top: 10px;
+  }
+
+  .language-box #box-header {
+    margin-bottom:11.5px;
+  }
+
+  .buttons:not(.demo,.cv-section) {
+    display:block;
+  }
+
+  .buttons:not(.demo):not(.cv-section) button {
+    display:block;
+    font-size: 12px;
+    margin:10px 0px;
+  }
+
+  .add {
+    font-size:12px;
+  }
+
+  .input-row:not(.levels) {
+    display:block;
+  }
+  .input-row:not(.levels) input {
+    display:block;
+    width:100%;
+    margin:20px 0px;
+  }
+
+  .data-box form input, .data-box form textarea, .data-box form select{
+    font-size:12px;
+  }
+
+  .input-row.levels {
+    gap:10px;
+  }
+
+  .delete {
+    flex-shrink: 0;
+    min-width:20px;
+    font-size: 12px;
+  }
+
+  .download {
+    padding:10px;
+    width: 140px;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .progressBar {
+    --bar-length: 230px;
+    --point-distance: 10px;
+  }
+
+  .logo {
+    margin-left: calc((50% - 115px) / 2);
+  }
+
+  .cv-preview .cv {
+    --scale: 0.6;
+  }
+
+  .buttons.cv-section {
+    width: 318px;
+    bottom: 80px;
+    display: block;
+    margin: 0px auto;
+  }
+
+  .buttons.cv-section button {
+    margin: 10px auto;
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 356px) {
+
+  .progressBar {
+    --bar-length: 300px;
+    --point-distance: 20px;
+    transform:translateX(-2.5%);
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .cv-preview .cv {
+    --scale: 0.55;
+  }
+}
+
+@media only screen and (max-height: 900px) {
+  .buttons.cv-section {
+    margin: 0px 0px 5px 0px;
+  }
+
+  .cv-preview {
+    gap: 0px;
+    flex-shrink: 0;
+  }
+
+  .cv-preview .cv {
+    flex-shrink: 0;
+  }
+}
+
+@media only screen and (max-height: 730px) {
+  .buttons.cv-section {
+    bottom: 130px;
+  }
+
+  .buttons.cv-section button {
+    padding: 10px 10px;
+  }
+}
+
+@media only screen and (max-height: 600px) {
+  .buttons.cv-section {
+    bottom: 150px;
+    width:291.5px;
+  }
+
+  .cv-preview .cv {
+    --scale: 0.55;
   }
 }
