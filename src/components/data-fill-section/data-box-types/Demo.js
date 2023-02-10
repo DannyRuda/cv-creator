@@ -3,7 +3,7 @@ import { DownloadAnchor } from "../download";
 function DemoButtons(props) {
   const { handleAutofill, handleClear } = props;
   return (
-    <div className="data-box">
+    <div className="data-box demo-box">
       <h2 id="box-header">Demo Functionality</h2>
       <div className="box-anchor" id="Demo"></div>
       <Buttons handleAutofill={handleAutofill} handleClear={handleClear} values={props.values}/>

@@ -26,7 +26,7 @@ function CVPreview(props) {
   return (
     <div className="cv-preview">
       <CV screenshot={screenshotRef} values={props.dataBoxesValues} />
-      <Buttons switchSections={props.switchSections} values={props.values}  />
+      {props.switchLogic ? (<Buttons switchSections={props.switchSections} values={props.values}  />) : ""}
     </div>
   );
 }
