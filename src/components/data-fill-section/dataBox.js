@@ -4,8 +4,8 @@ import { Contact } from "./data-box-types/Contact";
 import { Education } from "./data-box-types/Education";
 import { Work } from "./data-box-types/Work";
 import { Additional } from "./data-box-types/Additional";
-import { Skills, SkillsClass } from "./data-box-types/Skills";
-import { LanguagesClass } from "./data-box-types/Languages";
+import { Skills } from "./data-box-types/Skills";
+import { Languages } from "./data-box-types/Languages";
 import { React, useEffect } from "react";
 import { downloadCV } from "./download";
 import { DownloadAnchor } from "./download";
@@ -63,14 +63,14 @@ function DataBox(props) {
         handleRemove={handleRemove}
         onFocusOut={onFocusOut}
       />
-      <SkillsClass
+      <Skills
         values={skills}
         handleAdd={handleAdd}
         handleChange={handleChange}
         handleRemove={handleRemove}
         onFocusOut={onFocusOut}
       />
-      <LanguagesClass
+      <Languages
         values={languages}
         handleAdd={handleAdd}
         handleChange={handleChange}

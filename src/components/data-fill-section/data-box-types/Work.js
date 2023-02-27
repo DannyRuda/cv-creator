@@ -1,11 +1,8 @@
 import React from "react";
 import { mapTogetherInputs } from "./InputfieldMapping";
+import { blockSubmit } from "./blockSubmit";
 
 function Work(props) {
-
-  function blockSubmit(e) {
-    e.preventDefault();
-  }
 
   const inputFields = mapTogetherInputs(props,blockSubmit,"work");
 
