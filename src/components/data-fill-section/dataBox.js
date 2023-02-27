@@ -1,8 +1,8 @@
 import { DemoButtons } from "./data-box-types/Demo";
 import { Personal } from "./data-box-types/Personal";
 import { Contact } from "./data-box-types/Contact";
-import { EducationClass } from "./data-box-types/Education";
-import { WorkClass } from "./data-box-types/Work";
+import { Education } from "./data-box-types/Education";
+import { Work } from "./data-box-types/Work";
 import { Additional } from "./data-box-types/Additional";
 import { Skills, SkillsClass } from "./data-box-types/Skills";
 import { LanguagesClass } from "./data-box-types/Languages";
@@ -49,14 +49,14 @@ function DataBox(props) {
         handleChange={handleChange}
         onFocusOut={onFocusOut}
       />
-      <EducationClass
+      <Education
         values={education}
         handleAdd={handleAdd}
         handleChange={handleChange}
         handleRemove={handleRemove}
         onFocusOut={onFocusOut}
       />
-      <WorkClass
+      <Work
         values={work}
         handleAdd={handleAdd}
         handleChange={handleChange}

@@ -45,3 +45,20 @@ function DownloadAnchor(props) {
 }
 
 export { downloadCV, DownloadAnchor };
+
+
+  /*
+    const [, takeScreenshot] = useScreenshot({ type: "image/png", quality: 1.0 });
+  function screenshotWithReact() {
+    const cv = document.querySelector("#cv");
+    hideAndScaleCV(cv);
+    takeScreenshot(screenshotRef.current).then((img) => {
+      window.setTimeout(() => {
+        const pdf = new jsPDF();
+        pdf.addImage(img, "JPG", 0, 0);
+        pdf.save("download.pdf");
+        showCV(cv);
+      }, 1000);
+    });
+  }
+  */
