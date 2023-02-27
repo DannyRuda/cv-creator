@@ -257,7 +257,15 @@
 
   .cv-preview .cv {
     flex-shrink: 0;
+    --scale: 0.8;
   }
+
+  .buttons.cv-section {
+    width: 371px;
+    position: relative;
+    bottom: 50px;
+  }
+
 }
 
 @media only screen and (max-height: 730px) {
@@ -267,6 +275,11 @@
 
   .buttons.cv-section button {
     padding: 10px 10px;
+  }
+
+  .cv-preview .cv {
+    flex-shrink: 0;
+    --scale: 0.6;
   }
 }
 
