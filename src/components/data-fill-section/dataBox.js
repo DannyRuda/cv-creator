@@ -3,7 +3,6 @@ import { Personal } from "./data-box-types/Personal";
 import { Contact } from "./data-box-types/Contact";
 import { Education } from "./data-box-types/Education";
 import { Work } from "./data-box-types/Work";
-import { Additional } from "./data-box-types/Additional";
 import { Skills } from "./data-box-types/Skills";
 import { Languages } from "./data-box-types/Languages";
 import { React, useEffect } from "react";
@@ -86,18 +85,6 @@ function DataBox(props) {
           Download
         </button>
       )}
-    </div>
-  );
-}
-function Buttons(props) {
-  return (
-    <div className="buttons-data-box">
-      <button className="download" onClick={downloadCV}>
-        Download
-      </button>
-      <button className="preview" onClick={downloadCV}>
-        Preview
-      </button>
     </div>
   );
 }
