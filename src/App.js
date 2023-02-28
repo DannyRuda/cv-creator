@@ -1,5 +1,5 @@
 import React from "react";
-import { DataFillSectionClass } from "./components/data-fill-section/DataFillSection";
+import { DataFillSection } from "./components/data-fill-section/DataFillSection";
 import { CVPreview } from "./components/cv-preview-section/cvPreview";
 import { updateProgressIndicator } from "./components/data-fill-section/updateProgressIndicator";
 import { checkProgressPoints } from "./components/data-fill-section/updateProgressPoints";
@@ -179,7 +179,7 @@ class App extends React.Component {
     const sections =
       this.state.sections === "both" ? (
         <div id="app">
-          <DataFillSectionClass
+          <DataFillSection
             dataBoxesValues={dataBoxesValues}
             progressPoints={this.state.progressPointsReached}
             handleAdd={this.handleAdd}
@@ -194,7 +194,7 @@ class App extends React.Component {
         </div>
       ) : this.state.sections === "data-fill" ? (
         <div id="app">
-          <DataFillSectionClass
+          <DataFillSection
             dataBoxesValues={dataBoxesValues}
             progressPoints={this.state.progressPointsReached}
             handleAdd={this.handleAdd}
