@@ -1,35 +1,35 @@
 import { boxValuesFull } from "./updateProgressIndicator";
 
-function checkProgressPoints(state) { 
-        console.log("updateProgressPoints was called",state)
-        const {personal,contact,education,work,skills,languages} = state.values;
-        const copyState = Object.assign({},state);
+function checkProgressPoints(progressPointsReached,values) { 
+        const {personal,contact,education,work,skills,languages} = values;
+        const copyProgressPoints = Object.assign({},progressPointsReached);
        if(boxValuesFull(personal)) {
-        copyState.progressPointsReached.Personal = true;
+        copyProgressPoints.Personal = true;
        } else {
-        copyState.progressPointsReached.Personal = false;
+        copyProgressPoints.Personal = false;
        }
        if(boxValuesFull(contact)) {
-        copyState.progressPointsReached.Contact = true;
+        copyProgressPoints.Contact = true;
        } else {
-        copyState.progressPointsReached.Contact = false;
+        copyProgressPoints.Contact = false;
        }
        if(boxValuesFull(education)) {
-        copyState.progressPointsReached.Education = true;
+        copyProgressPoints.Education = true;
        } else {
-        copyState.progressPointsReached.Education = false;
+        copyProgressPoints.Education = false;
        }
        if(boxValuesFull(work)) {
-        copyState.progressPointsReached.Experience = true;
+        copyProgressPoints.Experience = true;
        } else {
-        copyState.progressPointsReached.Experience = false;
+        copyProgressPoints.Experience = false;
        }
        if(boxValuesFull(skills) && boxValuesFull(languages)) {
-        copyState.progressPointsReached.Additional = true;
+        copyProgressPoints.Additional = true;
        } else {
-        copyState.progressPointsReached.Additional = false;
+        copyProgressPoints.Additional = false;
        }
-       return copyState
+       console.log("checkProgressPoints",copyProgressPoints)
+       return copyProgressPoints
 }
 
 export {checkProgressPoints}

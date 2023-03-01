@@ -19,8 +19,8 @@ function DataFillSection(props) {
   } = props;
 
   function callOnFocusOut() {
-    console.log("called from DataFillSection", this.props.dataBoxesValues);
-    updateProgressIndicator(this.props.dataBoxesValues);
+    console.log("called from DataFillSection", props.dataBoxesValues);
+    updateProgressIndicator(props.dataBoxesValues);
     props.updateProgressPoints();
   }
 

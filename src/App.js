@@ -1,222 +1,157 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { DataFillSection } from "./components/data-fill-section/DataFillSection";
 import { CVPreview } from "./components/cv-preview-section/cvPreview";
 import { updateProgressIndicator } from "./components/data-fill-section/updateProgressIndicator";
 import { checkProgressPoints } from "./components/data-fill-section/updateProgressPoints";
+import { initialProgressPoints, initialState, initialValues } from "./initialState";
+import { generateEmptyFields } from "./generateEmptyFields";
 import {
-  autofillObject,
-  clearObject,
+  autoFillValues,
+  clearValues
 } from "./components/data-fill-section/Autofill";
-import {
-  determineSection,
-  determineWidth,
-  updateWidth,
-} from "./determineSection";
 import "./App.css";
 
-function generateEmptyFields(box) {
-  switch (box) {
-    case "personal":
-      return { first: "", last: "", job: "", description: "" };
-      break;
-    case "contact":
-      return { country: "", city: "", phone: "", email: "" };
-      break;
-    case "education":
-      return {
-        graduation: "",
-        institution: "",
-        start: "",
-        end: "",
-        description: "",
-      };
-      break;
-    case "work":
-      return { position: "", company: "", start: "", end: "", description: "" };
-      break;
-    case "skills":
-      return { skill: "", level: "" };
-      break;
-    case "languages":
-      return { language: "", level: "" };
-      break;
-    default:
-      break;
-  }
-}
+function AppFunction(props) {
+  let [state, setState] = useState(initialState);
+  const [values, setValues] = useState(initialValues);
+  const [progressPointsReached, setProgressPointsReached] = useState(initialProgressPoints);
+  const [section, setSection] = useState("both");
+  const [width, setWidth] = useState(window.innerWidth);
+  const [windowWidth,setWindowWidth] = useState(window.innerWidth);
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleAdd = this.handleAdd.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleRemove = this.handleRemove.bind(this);
-    this.handleAutofill = this.handleAutofill.bind(this);
-    this.handleClear = this.handleClear.bind(this);
-    this.switchSections = this.switchSections.bind(this);
-    this.updateProgressPoints = this.updateProgressPoints.bind(this);
-    this.state = {
-      values: {
-        personal: [{ first: "", last: "", job: "", description: "" }],
-        contact: [{ country: "", city: "", phone: "", email: "" }],
-        education: [
-          {
-            graduation: "",
-            institution: "",
-            start: "",
-            end: "",
-            description: "",
-          },
-        ],
-        work: [
-          { position: "", company: "", start: "", end: "", description: "" },
-        ],
-        skills: [
-          { skill: "", level: "" },
-          { skill: "", level: "" },
-        ],
-        languages: [
-          { language: "", level: "" },
-          { language: "", level: "" },
-        ],
-      },
-      progressPointsReached: {
-        Personal: false,
-        Contact: false,
-        Education: false,
-        Experience: false,
-        Additional: false,
-      },
-      sections: "both",
-      width: "",
-    };
-  }
-
-  handleAdd(box) {
+  function handleAdd(box) {
     console.log("handleAdd was called in App.js");
-    let copyState = Object.assign({}, this.state);
-    copyState.values[box] = copyState.values[box].concat([
+    let copyValues = Object.assign({}, values);
+    copyValues[box] = copyValues[box].concat([
       generateEmptyFields(box),
     ]);
-    this.setState(copyState, () => {
-      updateProgressIndicator(this.state.values);
-      this.updateProgressPoints();
-    });
+    setValues(copyValues);
   }
 
-  handleChange(e, index, type, box) {
+  function handleChange(e, index, type, box) {
     const target = e.target;
-    let valuesCopy = this.state.values[box].slice();
-    valuesCopy[index][type] = target.value;
+    let valuesCopy = JSON.parse(JSON.stringify(values));
+    valuesCopy[box][index][type] = target.value;
 
-    this.setState({ [box]: valuesCopy });
+    setValues(valuesCopy);
   }
 
-  handleRemove(box, index = 0) {
-    let copyState = Object.assign({}, this.state);
+  function handleRemove(box, index = 0) {
+    let copyValues = Object.assign({}, values);
     if (box === "languages" || box === "skills") {
-      copyState.values[box].splice(index, 1);
+      copyValues[box].splice(index, 1);
     } else {
-      copyState.values[box].pop();
+      copyValues[box].pop();
     }
-    this.setState(copyState, () => {
-      updateProgressIndicator(this.state.values);
-      this.updateProgressPoints();
-    });
+    setValues(copyValues);
   }
 
-  handleAutofill() {
-    const newAutofillObject = JSON.parse(JSON.stringify(autofillObject));
-    this.setState(newAutofillObject, () => {
-      updateProgressIndicator(this.state.values);
-      this.updateProgressPoints();
-    });
+  function handleAutofill() {
+    const newAutofillValues = JSON.parse(JSON.stringify(autoFillValues));
+    setValues(newAutofillValues);
   }
 
-  handleClear() {
-    const newClearObject = JSON.parse(JSON.stringify(clearObject))
-    this.setState(newClearObject,() => {
-      updateProgressIndicator(this.state.values);
-      this.updateProgressPoints();
-    });
+  function handleClear() {
+    const newClearValues = JSON.parse(JSON.stringify(clearValues));
+    setValues(newClearValues)
   }
 
-  updateProgressPoints() {
-    const copyState = checkProgressPoints(this.state);
-    this.setState(copyState);
+  const updateProgressPointsT = useCallback(() => {
+    const copyState = checkProgressPoints(state);
+    setState(copyState);
+  }, [state]);
+
+  function updateProgressPoints() {
+    setProgressPointsReached(checkProgressPoints(progressPointsReached,values));
   }
 
-  switchSections() {
-    console.log("switch sections")
-    const copyState = JSON.parse(JSON.stringify(this.state));
-    copyState.sections = copyState.sections === "data-fill" ? "cv-preview" : "data-fill";
-    this.setState(copyState);
+  function switchSections() {
+    console.log("switch sections");
+    let copySection = section;
+    copySection =
+      copySection === "data-fill" ? "cv-preview" : "data-fill";
+    setSection(copySection);
   }
 
-  update() {
-    this.setState((state,props)=>{
-      const copyState = JSON.parse(JSON.stringify(state));
-      if(copyState.width !== window.innerWidth) {
-        copyState.width = window.innerWidth;
-        if(copyState.width > 1150 && copyState.sections!=="both") {
-          copyState.sections = "both"
-        } 
-        else if(copyState.width <= 1150 && copyState.sections === "both") {
-          copyState.sections = "data-fill";
-        }
+  function update() {
+    console.log("update was called")
+    let copySection = section;
+    let copyWidth = width;
+    console.log(width)
+    if (copyWidth !== window.innerWidth) {
+      copyWidth = window.innerWidth;
+      console.log("copyWidth in first if",copyWidth)
+      if (copyWidth > 1150 && copySection !== "both") {
+        copySection = "both";
+      } else if (width <= 1150 && section === "both") {
+        copySection = "data-fill";
       }
-      return copyState;
-    })
+      setSection(copySection);
+      setWidth(copyWidth);
+    }
   }
 
-  componentDidMount() {
-    this.update();
-    window.setInterval(()=>{this.update()},2)
-  }
+  useEffect(() => {
+    update();
+  }, [windowWidth]);
 
-  render() {
-    const dataBoxesValues = this.state.values;
-    const sections =
-      this.state.sections === "both" ? (
-        <div id="app">
-          <DataFillSection
-            dataBoxesValues={dataBoxesValues}
-            progressPoints={this.state.progressPointsReached}
-            handleAdd={this.handleAdd}
-            handleChange={this.handleChange}
-            handleRemove={this.handleRemove}
-            handleAutofill={this.handleAutofill}
-            handleClear={this.handleClear}
-            updateProgressPoints={this.updateProgressPoints}
-            switchLogic={false}
-          />
-          <CVPreview dataBoxesValues={dataBoxesValues} switchLogic={false} />
-        </div>
-      ) : this.state.sections === "data-fill" ? (
-        <div id="app">
-          <DataFillSection
-            dataBoxesValues={dataBoxesValues}
-            progressPoints={this.state.progressPointsReached}
-            handleAdd={this.handleAdd}
-            handleChange={this.handleChange}
-            handleRemove={this.handleRemove}
-            handleAutofill={this.handleAutofill}
-            handleClear={this.handleClear}
-            updateProgressPoints={this.updateProgressPoints}
-            switchSections={this.switchSections}
-            switchLogic={true}
-          />
-        </div>
-      ) : (
-        <div id="app">
-          <CVPreview
-            dataBoxesValues={dataBoxesValues}
-            switchLogic={true}
-            switchSections={this.switchSections}
-          />
-        </div>
-      );
-    return sections;
-  }
+  useEffect(() => {
+    updateProgressIndicator(values);
+    updateProgressPoints();
+    
+  }, [values]);
+
+  useEffect(()=>{
+    window.setInterval(()=>{
+      if(windowWidth !== window.innerWidth) {
+        setWindowWidth(window.innerWidth);
+      }
+    },2)
+  },[])
+
+  const dataBoxesValues = values;
+  console.log(section)
+  const sections =
+    section === "both" ? (
+      <div id="app">
+        <DataFillSection
+          dataBoxesValues={dataBoxesValues}
+          progressPoints={progressPointsReached}
+          handleAdd={handleAdd}
+          handleChange={handleChange}
+          handleRemove={handleRemove}
+          handleAutofill={handleAutofill}
+          handleClear={handleClear}
+          updateProgressPoints={updateProgressPoints}
+          switchLogic={false}
+        />
+        <CVPreview dataBoxesValues={dataBoxesValues} switchLogic={false} />
+      </div>
+    ) : section === "data-fill" ? (
+      <div id="app">
+        <DataFillSection
+          dataBoxesValues={dataBoxesValues}
+          progressPoints={progressPointsReached}
+          handleAdd={handleAdd}
+          handleChange={handleChange}
+          handleRemove={handleRemove}
+          handleAutofill={handleAutofill}
+          handleClear={handleClear}
+          updateProgressPoints={updateProgressPoints}
+          switchSections={switchSections}
+          switchLogic={true}
+        />
+      </div>
+    ) : (
+      <div id="app">
+        <CVPreview
+          dataBoxesValues={dataBoxesValues}
+          switchLogic={true}
+          switchSections={switchSections}
+        />
+      </div>
+    );
+  return sections;
 }
-export default App;
+
+export { AppFunction };
