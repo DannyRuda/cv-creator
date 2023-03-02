@@ -39,6 +39,13 @@
   margin-top: 20px;
 }
 
+.downloadable.cv {
+  position:absolute;
+  left: 10000px;
+  --scale:1.5;
+  transform: scale(var(--scale)) translateX(800px);
+}
+
 @font-face {
   font-family: Poppins;
   src: url(./../../fonts/Poppins-SemiBold.ttf) format("truetype");

@@ -1,5 +1,5 @@
 import { createRef } from "react";
-import { CV } from "./cv";
+import { CV,DownloadableCV } from "./cv";
 import { downloadCV } from "../data-fill-section/download";
 import "./cv-preview.css";
 
@@ -8,6 +8,7 @@ function CVPreview(props) {
   return (
     <div className="cv-preview">
       <CV screenshot={screenshotRef} values={props.dataBoxesValues} />
+      <DownloadableCV screenshot={screenshotRef} values={props.dataBoxesValues} />
       {props.switchLogic ? (<Buttons switchSections={props.switchSections} values={props.values}  />) : ""}
     </div>
   );
