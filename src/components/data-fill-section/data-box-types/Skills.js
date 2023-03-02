@@ -11,6 +11,7 @@ function Skills(props) {
     <div className="data-box language-box">
       <h2 id="box-header">Skills</h2>
       <div className="form no-margin">
+      <div id="Additional" className="box-anchor"></div>
         <form onSubmit={blockSubmit}>
           {inputs}
           <AddButton handleAdd={props.handleAdd} category="skills"/>
