@@ -36,7 +36,7 @@ function DownloadableCV(props) {
     valuesOrPlaceholder(props.values);
 
   return (
-    <div className="downloadable cv" id="cv" ref={props.screenshot}>
+    <div className="downloadable-cv" id="cv" ref={props.screenshot}>
       <div className="information-area">
         <div className="header-card">
           <h2>{personal[0].first + " " + personal[0].last}</h2>

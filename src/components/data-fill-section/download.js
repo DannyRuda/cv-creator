@@ -4,7 +4,7 @@ import { downloadIcon } from "./svg-components";
 import { allBoxesFull } from "./updateProgressIndicator";
 
 function downloadCV() {
-  const cv = document.querySelector(".downloadable.cv");
+  const cv = document.querySelector(".downloadable-cv");
 
   html2canvas(cv).then((canvas) => {
     const imgData = canvas.toDataURL("image/png", 1);

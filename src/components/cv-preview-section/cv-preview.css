@@ -39,11 +39,15 @@
   margin-top: 20px;
 }
 
-.downloadable.cv {
+.downloadable-cv {
+  background-color: white;
+  width: 530px;
+  height: 750px;
+  transform: scale(var(--scale)) translateX(800px);
+  margin-top: 20px;
   position:absolute;
   left: 10000px;
   --scale:1.5;
-  transform: scale(var(--scale)) translateX(800px);
 }
 
 @font-face {
